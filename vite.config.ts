@@ -3,7 +3,13 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
-import siteConfiguration from './.figma/make/site.json'
+// 1. REMOVED: import siteConfiguration from './.figma/make/site.json'
+// 2. ADDED: Safe fallback configuration object
+const siteConfiguration: FigmaSiteConfiguration = {
+  title: "Figma Make App",
+  description: "",
+  language: "en"
+}
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
