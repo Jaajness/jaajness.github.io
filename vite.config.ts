@@ -23,14 +23,16 @@ export default defineConfig(({ mode }) => {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
     },
-    plugins: [
+        plugins: [
       react(),
       tailwindcss(),
       figmaSiteConfiguration(siteConfiguration),
-      figmaErrorOverlayReplay(),
-      figmaReactRefreshBoundaryFallback(),
-      figmaMakeKitPlugin({ storiesGlob: '/src/**/*.stories.{ts,tsx,js,jsx}' }),
+      // Remove or comment out the development plugins below:
+      // figmaErrorOverlayReplay(),
+      // figmaReactRefreshBoundaryFallback(),
+      // figmaMakeKitPlugin({ storiesGlob: '/src/**/*.stories.{ts,tsx,js,jsx}' }),
     ],
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
