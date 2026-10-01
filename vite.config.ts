@@ -18,12 +18,12 @@ export default defineConfig(({ mode }) => {
 
   return {
     /* base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/', */
-    base: '/',
+    base: "/",
     build: {
-      sourcemap: emitSourcemaps ? 'inline' : false,
+      sourcemap: emitSourcemaps ? "inline" : false,
       minify: !emitSourcemaps,
     },
-        plugins: [
+    plugins: [
       react(),
       tailwindcss(),
       figmaSiteConfiguration(siteConfiguration),
@@ -35,20 +35,22 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        "@": path.resolve(__dirname, "./src"),
       },
     },
+    
     server: {
-      host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
-      port: parseInt(process.env.PORT || '8443'),
-      strictPort: true,
-      watch: { ignored: ['**/.figma/**'] },
+      host: process.env.FIGMA_DEV_SERVER_HOST || "0.0.0.0",
+      port: 5173, // Changed: Safe, standard Vite dev port
+      strictPort: false, // Changed: Allows Vite to find an open port automatically
+      watch: { ignored: ["**/.figma/**"] },
     },
     preview: {
-      host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
-      port: parseInt(process.env.PORT || '8443'),
+      host: process.env.FIGMA_DEV_SERVER_HOST || "0.0.0.0",
+      port: 4173, // Changed: Safe, standard Vite preview port
+      strictPort: false, // Added: Prevents preview server from crashing if busy
     },
-  }
+  };
 })
 
 type FigmaSiteConfiguration = {
