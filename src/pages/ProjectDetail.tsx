@@ -46,6 +46,38 @@ function ProjectImage({
   )
 }
 
+const UNITY_PROCESS_COPY = [
+  <>
+    Définir le <strong>concept de jeu</strong>, les <strong>mécaniques principales</strong> et les{" "}
+    <strong>boucles de gameplay</strong> dans un document et/ou avec des notes pour voir l’
+    <strong>aspect global</strong> du jeu et ainsi <strong>planifier</strong> les objets à aller chercher, les modèles
+    et fichiers audio à intégrer, le code à réaliser, etc.
+  </>,
+  <>
+    <strong>Programmation</strong> des <strong>systèmes de personnage</strong>, de <strong>physique</strong> et de{" "}
+    <strong>progression</strong> en <strong>C#</strong> pour tester et rapidement créer un{" "}
+    <strong>environnement interactif</strong> sans se soucier des textures, objets, environnement, etc. Mise en place
+    de l’architecture de <strong>code modulaire</strong> et réutilisable.
+  </>,
+  <>
+    <strong>Modélisation et rigging</strong> des <strong>personnages</strong> dans <strong>Blender</strong>, puis
+    intégration des animations dans Unity via l’<strong>Animator Controller</strong>. <strong>Création</strong> des{" "}
+    <strong>assets visuels</strong> du projet. Le jeu doit avoir son <strong>aspect “vivant”</strong> pour pouvoir{" "}
+    <strong>intégrer le son</strong> et le reste.
+  </>,
+  <>
+    <strong>Intégration</strong> de la <strong>bande sonore</strong>, des <strong>effets sonores</strong> et des{" "}
+    <strong>effets visuels</strong>, utilisant les principes de son 2D et 3D ainsi que la bonne utilisation de{" "}
+    <strong>loop audio</strong>. Travail sur le <strong>polish global</strong> pour renforcer le{" "}
+    <strong>ressenti de jeu</strong>.
+  </>,
+  <>
+    <strong>Tests fonctionnels</strong> complets, <strong>correction des bugs</strong>, <strong>optimisation</strong>{" "}
+    des performances pour permettre une expérience agréable et intéressante. Production de la{" "}
+    <strong>build finale jouable</strong> et <strong>documentation</strong> du projet.
+  </>,
+]
+
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const navigate = useNavigate()
@@ -110,9 +142,16 @@ export default function ProjectDetail() {
             <div>
               <DetailHeading>Contexte</DetailHeading>
               <p className="detail-lead">
-                {isUnity
-                  ? "Conception d’un jeu 3D éducatif avec une thématique écologique (sauvegarde de l’environnement, recyclage, le compost, espèces menacées). Le joueur doit se déplacer en utilisant les touches du clavier pour collecter des objets et éviter des obstacles. Le but du jeu est de sensibiliser les joueurs aux enjeux environnementaux tout en les divertissant."
-                  : project.overview}
+                {isUnity ? (
+                  <>
+                    Conception d’un <strong>jeu 3D éducatif</strong> avec une <strong>thématique écologique</strong>{" "}
+                    (sauvegarde de l’environnement, recyclage, le compost, espèces menacées). Le joueur doit{" "}
+                    <strong>se déplacer</strong> en utilisant les touches du clavier pour{" "}
+                    <strong>collecter des objets</strong> et <strong>éviter des obstacles</strong>. Le but du jeu est
+                    de <strong>sensibiliser les joueurs</strong> aux enjeux environnementaux tout en les{" "}
+                    <strong>divertissant</strong>.
+                  </>
+                ) : project.overview}
               </p>
             </div>
             <ProjectImage src={isUnity ? UNITY_ASSETS.context : undefined} alt={`Contexte de ${project.title}`} className="context-media" />
@@ -128,7 +167,7 @@ export default function ProjectDetail() {
                   <div className="step-text">
                     <span className="step-num">{step.step}</span>
                     <h3>{step.title}</h3>
-                    <p>{step.body}</p>
+                    <p>{isUnity ? UNITY_PROCESS_COPY[stepIndex] : step.body}</p>
                   </div>
                   <ProjectImage
                     src={isUnity ? UNITY_ASSETS.steps[stepIndex] : undefined}
@@ -159,8 +198,17 @@ export default function ProjectDetail() {
               <div className="challenges">
                 <DetailHeading>Défis &amp; solutions</DetailHeading>
                 <ul className="detail-outcomes">
-                  <li><span className="skill-bullet" />La scène manquait d’effets de noirceur → recherches sur le post-processing</li>
-                  <li><span className="skill-bullet" />Les ennemis devaient avoir un comportement réaliste → programmation d’un système de vision et réaction selon la distance.</li>
+                  <li>
+                    <span className="skill-bullet" />
+                    <span>La scène manquait d’effets de noirceur → <strong>recherches</strong> sur le <strong>post-processing</strong></span>
+                  </li>
+                  <li>
+                    <span className="skill-bullet" />
+                    <span>Les ennemis devaient avoir un comportement réaliste → <strong>Programmation</strong> d’un{" "}
+                    <strong>système de vision</strong> et réaction selon la <strong>distance</strong>, le temps
+                    d’entrée dans le <strong>champ de vision</strong> et la <strong>position</strong> du personnage
+                    (debout ou accroupi)</span>
+                  </li>
                 </ul>
               </div>
             )}

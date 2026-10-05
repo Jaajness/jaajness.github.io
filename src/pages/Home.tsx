@@ -29,17 +29,18 @@ const SOFT_SKILLS = [
 ]
 
 const HUB_LINKS = [
-  { label: "Démo-reel", desc: "Extraits vidéo sélectionnés", href: "#presentation" },
+  { label: "Vidéo de présentation", desc: "Extraits vidéo sélectionnés", href: "#presentation" },
   { label: "LinkedIn", desc: "Réseau professionnel", href: "#" },
   { label: "GitHub", desc: "Accès à mes projets", href: "#" },
+  { label: "Artstation", desc: "Accès à mes animations", href: "#" },
   { label: "Utilisation de l’IA", desc: "Déclaration publique", href: "#utilisation-ia" },
 ]
 
 const PROJECT_IMAGES = [
-  "/assets/14d1e.png",
+  "/assets/21dd5.png",
   "/assets/3d88e.png",
-  "/assets/70c74.png",
-  "/assets/41168.png",
+  "/assets/3330e.png",
+  "/assets/a512c.png",
   "/assets/6970d.png",
 ]
 
@@ -65,42 +66,53 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="hero-scan" />
         <div className="hero-ring" />
+        <div className="hero-art" aria-hidden="true">
+          <img src="/assets/fb92f.png" alt="" />
+        </div>
         <span className="hero-sidetag">Éli Bousquet — Portfolio 2026</span>
-        <div className="container hero-inner">
-          <div className="hero-content">
-            <div className="hero-intro">
-              <span className="hero-eyebrow"><span className="pulse-dot" />Portfolio</span>
-              <strong>Développeur &amp; Animateur</strong>
+        <div className="hero-wrapper">
+          <div className="container hero-inner">
+            <div className="hero-content">
+              <div className="hero-intro">
+                <span className="hero-eyebrow"><span className="pulse-dot" />Portfolio</span>
+                <strong>Développeur &amp; Animateur</strong>
+              </div>
+              <h1 className="hero-name">Éli<br />Bousquet</h1>
+              <p className="hero-hook hero-hook-desktop">
+                Une personne <strong>créative</strong> qui cherche à utiliser ses <strong>compétences</strong> et son{" "}
+                <strong>énergie</strong> pour aider, ajoutant une touche unique à toute <strong>collaboration</strong>.
+              </p>
+              <p className="hero-hook hero-hook-mobile">
+                Une personne énergique cherchant à offrir cette même énergie dans les projets abordés
+              </p>
+              <div className="hero-actions">
+                <button className="btn-primary" data-arc-target onClick={() => scrollTo("projets")}>Voir les projets</button>
+                <button className="btn-secondary" data-arc-target onClick={() => scrollTo("a-propos")}>À propos</button>
+              </div>
             </div>
-            <h1 className="hero-name">Éli<br />Bousquet</h1>
-            <p className="hero-hook">
-              Une personne <strong>créative</strong> qui cherche à utiliser ses <strong>compétences</strong> et son{" "}
-              <strong>énergie</strong> pour aider, ajoutant une touche unique à toute <strong>collaboration</strong>.
-            </p>
-            <div className="hero-actions">
-              <button className="btn-primary" data-arc-target onClick={() => scrollTo("projets")}>Voir les projets</button>
-              <button className="btn-secondary" data-arc-target onClick={() => scrollTo("a-propos")}>À propos</button>
-            </div>
-          </div>
 
-          <nav className="hub-nav" aria-label="Liens professionnels">
-            {HUB_LINKS.map((item) => (
-              <a key={item.label} className="hub-card" href={item.href} data-arc-target>
-                <span className="hub-card-label">{item.label}</span>
-                <span className="hub-card-desc">{item.desc}</span>
-                <span className="hub-card-arrow">→</span>
-              </a>
-            ))}
-          </nav>
+            <nav className="hub-nav" aria-label="Liens professionnels">
+              {HUB_LINKS.map((item) => (
+                <a key={item.label} className="hub-card" href={item.href} data-arc-target>
+                  <span className="hub-card-label">{item.label}</span>
+                  <span className="hub-card-desc">{item.desc}</span>
+                  <span className="hub-card-arrow">→</span>
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </section>
 
       <section id="a-propos" className="section about-section">
-        <div className="about-art" aria-hidden="true">
-          <img src="/assets/fb92f.png" alt="" />
-        </div>
         <div className="container">
           <SectionHeading number="01">À propos</SectionHeading>
+          <figure className="about-portrait about-portrait-mobile">
+            <div className="about-portrait-frame">
+              <img src="/assets/d580d.png" alt="Portrait d’Éli Bousquet" />
+            </div>
+            <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
+          </figure>
           <div className="about-grid">
             <div className="about-column">
               <p className="about-value-prop">
@@ -126,6 +138,12 @@ export default function Home() {
               </div>
             </div>
             <div className="about-column about-column-right">
+              <figure className="about-portrait about-portrait-desktop">
+                <div className="about-portrait-frame">
+                  <img src="/assets/d580d.png" alt="Portrait d’Éli Bousquet" />
+                </div>
+                <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
+              </figure>
               <div className="about-block">
                 <h3 className="about-block-title">Qualités humaines</h3>
                 <div className="pill-grid">{SOFT_SKILLS.map((item) => <span key={item} className="pill">{item}</span>)}</div>
@@ -142,10 +160,6 @@ export default function Home() {
           <div id="presentation" className="feature-block">
             <SectionHeading number="—">Vidéo de présentation</SectionHeading>
             <div className="media-frame" data-arc-target />
-          </div>
-          <div className="feature-block internship">
-            <SectionHeading number="—">Recherche de stage</SectionHeading>
-            <p>J’ai un intérêt particulier pour les stages de jeux-vidéo et d’animation 3D!</p>
           </div>
         </div>
       </section>
@@ -180,18 +194,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="utilisation-ia" className="section ai-section">
+      <section className="stage-section">
         <div className="container">
-          <SectionHeading number="—">Utilisation de l’IA</SectionHeading>
-          <div className="ai-statement">
-            <span className="ai-statement-label">Déclaration publique</span>
-            <p>
-              Pour concevoir et développer ce portfolio, j’ai utilisé <strong>Figma Make</strong> comme base afin
-              d’explorer la structure, le design et le code. J’ai personnellement fourni la direction artistique,
-              les couleurs et les inspirations, adapté les propositions, puis vérifié le design, les contenus et les
-              fonctionnalités.
-            </p>
-          </div>
+          <h2>Recherche de stage</h2>
+          <p>J’ai un intérêt particulier pour les stages de jeux-vidéo et d’animation 3D!</p>
         </div>
       </section>
 
@@ -203,6 +209,21 @@ export default function Home() {
             <a href="mailto:jaajnessmain@gmail.com" className="contact-link" data-arc-target>jaajnessmain@gmail.com</a>
             <a href="#" className="contact-link" data-arc-target>Linkedin</a>
             <a href="#" className="btn-primary" data-arc-target>Télécharger le CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="utilisation-ia" className="section ai-section">
+        <div className="container">
+          <SectionHeading number="—">Utilisation de l’IA</SectionHeading>
+          <div className="ai-statement">
+            <span className="ai-statement-label">Déclaration publique</span>
+            <p>
+              Pour concevoir et développer ce portfolio, j’ai utilisé <strong>Figma Make</strong> comme base afin
+              d’explorer la structure, le design et le code. J’ai personnellement fourni la direction artistique,
+              les couleurs et les inspirations, adapté les propositions, puis vérifié le design, les contenus et les
+              fonctionnalités.
+            </p>
           </div>
         </div>
       </section>

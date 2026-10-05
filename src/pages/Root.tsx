@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, useLocation } from "react-router"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ElectricArcCursor } from "../imports/pasted_text/electric-arc-cursor"
 
 export default function Root() {
@@ -8,8 +8,13 @@ export default function Root() {
   const mouseGlow  = useRef<HTMLDivElement>(null)
   const navigate   = useNavigate()
   const location   = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const isHome = location.pathname === "/"
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
     let trailX = 0, trailY = 0, curX = 0, curY = 0, raf = 0
@@ -64,12 +69,22 @@ export default function Root() {
       <nav className="nav">
         <div className="container nav-inner">
           <button className="nav-logo" data-arc-target onClick={() => navigate("/")}>EB</button>
-          <div className="nav-links">
+          <div className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("a-propos")}>À propos</button>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("projets")}>Projets</button>
+            <button className="nav-link nav-ai-link" data-arc-target onClick={() => scrollTo("utilisation-ia")}>Utilisation de l’IA</button>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("contact")}>Contact</button>
             <a href="#" className="btn-nav" data-arc-target>CV</a>
           </div>
+          <button
+            className="nav-menu-toggle"
+            type="button"
+            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <img src="/assets/406c7.svg" alt="" />
+          </button>
         </div>
       </nav>
 
