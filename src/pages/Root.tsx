@@ -72,7 +72,6 @@ export default function Root() {
           <div className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("a-propos")}>À propos</button>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("projets")}>Projets</button>
-            <button className="nav-link nav-ai-link" data-arc-target onClick={() => scrollTo("utilisation-ia")}>Utilisation de l’IA</button>
             <button className="nav-link" data-arc-target onClick={() => scrollTo("contact")}>Contact</button>
             <a href="#" className="btn-nav" data-arc-target>CV</a>
           </div>
