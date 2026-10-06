@@ -2,7 +2,7 @@
 dist/
 
 # Node
-/node_modules/
+node_modules/
 npm-debug.log
 
 # JetBrains
@@ -17,3 +17,5 @@ npm-debug.log
 [Dd]esktop.ini
 Thumbs.db
 scripts/tmp
+
+.figma/
