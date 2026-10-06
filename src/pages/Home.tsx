@@ -257,7 +257,7 @@ export default function Home() {
               >
                 <img src={PROJECT_IMAGES[index]} alt="" />
                 <span className="project-card-shade" />
-                <span className="project-title">{project.title}</span>
+                
                 <span className="project-card-details">
                   <span className="project-card-number">
                     {String(project.id).padStart(2, "0")}
