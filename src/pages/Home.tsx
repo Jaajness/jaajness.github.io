@@ -330,7 +330,12 @@ export default function Home() {
             <a href="#" className="contact-link" data-arc-target>
               Linkedin
             </a>
-            <a href="#" className="btn-primary" data-arc-target>
+            <a
+              download={"/assets/CV_Eli_Bousquet_2026_Portfolio.docx"}
+              href="#"
+              className="btn-primary"
+              data-arc-target
+            >
               Télécharger le CV
             </a>
           </div>
