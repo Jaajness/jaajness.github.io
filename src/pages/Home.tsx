@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router";
+import Youtube from "../components/Youtube";
 import { PROJECTS } from "../data/projects";
+
+const PRESENTATION_VIDEO_ID = "4oHlfGI1rvI";
 
 const SKILLS = [
   "Animation d’environnements 3D",
@@ -239,7 +242,12 @@ export default function Home() {
 
           <div id="presentation" className="feature-block">
             <SectionHeading number="—">Vidéo de présentation</SectionHeading>
-            <div className="media-frame" data-arc-target />
+            <div className="media-frame" data-arc-target>
+              <Youtube
+                videoId={PRESENTATION_VIDEO_ID}
+                title="Vidéo de présentation d’Éli Bousquet"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -257,7 +265,7 @@ export default function Home() {
               >
                 <img src={PROJECT_IMAGES[index]} alt="" />
                 <span className="project-card-shade" />
-                
+
                 <span className="project-card-details">
                   <span className="project-card-number">
                     {String(project.id).padStart(2, "0")}
