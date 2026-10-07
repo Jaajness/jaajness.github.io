@@ -788,8 +788,8 @@ strong {
   z-index: 2;
   top: 50%;
   left: 50%;
-  width: 64px;
-  height: 64px;
+  width: 86px;
+  height: 86px;
   filter: invert(1) drop-shadow(0 0 4px #000);
   transform: translate(-50%, -50%);
   transform-origin: center;
@@ -798,8 +798,8 @@ strong {
     transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .youtube-player-play img {
-  width: 64px;
-  height: 64px;
+  width: 86px;
+  height: 86px;
   display: block;
 }
 .youtube-player-poster:hover .youtube-player-play,
