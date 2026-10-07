@@ -37,9 +37,21 @@ const HUB_LINKS = [
     desc: "Extraits vidéo sélectionnés",
     href: "#presentation",
   },
-  { label: "LinkedIn", desc: "Réseau professionnel", href: "#" },
-  { label: "GitHub", desc: "Accès à mes projets", href: "#" },
-  { label: "Artstation", desc: "Accès à mes animations", href: "#" },
+  {
+    label: "LinkedIn",
+    desc: "Réseau professionnel",
+    href: "https://www.linkedin.com/in/%C3%A9li-bousquet-0aa1063b8/",
+  },
+  {
+    label: "GitHub",
+    desc: "Accès à mes projets",
+    href: "https://github.com/Jaajness",
+  },
+  {
+    label: "Artstation",
+    desc: "Accès à mes animations",
+    href: "https://www.artstation.com/eli-scott5",
+  },
   {
     label: "Utilisation de l’IA",
     desc: "Déclaration publique",
