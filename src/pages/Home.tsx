@@ -242,12 +242,11 @@ export default function Home() {
 
           <div id="presentation" className="feature-block">
             <SectionHeading number="—">Vidéo de présentation</SectionHeading>
-            <div className="media-frame" data-arc-target>
-              <Youtube
-                videoId={PRESENTATION_VIDEO_ID}
-                title="Vidéo de présentation d’Éli Bousquet"
-              />
-            </div>
+
+            <Youtube
+              videoId={PRESENTATION_VIDEO_ID}
+              title="Vidéo de présentation d’Éli Bousquet"
+            />
           </div>
         </div>
       </section>
