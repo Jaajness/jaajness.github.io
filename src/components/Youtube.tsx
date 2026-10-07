@@ -81,7 +81,18 @@ export default function Youtube({
 }: YoutubeProps) {
   const wrapper = useRef<HTMLDivElement>(null);
   const playerTarget = useRef<HTMLDivElement>(null);
-  const [activated, setActivated] = useState(!poster);
+  // The iframe (and its native controls) is only created after the visitor
+  // clicks the custom play button, unless autoplay is explicitly requested.
+  const [activated, setActivated] = useState(autoplay);
+  const [thumbnail, setThumbnail] = useState(
+    poster ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  );
+
+  useEffect(() => {
+    setThumbnail(
+      poster ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+    );
+  }, [poster, videoId]);
 
   useEffect(() => {
     if (!videoId || !activated || !playerTarget.current) return;
@@ -96,7 +107,7 @@ export default function Youtube({
       player = new YT.Player(playerTarget.current, {
         videoId,
         playerVars: {
-          autoplay: autoplay || poster ? 1 : 0,
+          autoplay: 1,
           controls: controls ? 1 : 0,
           enablejsapi: 1,
           playsinline: 1,
@@ -133,7 +144,7 @@ export default function Youtube({
         player.destroy();
       }
     };
-  }, [activated, autoplay, controls, poster, start, videoId]);
+  }, [activated, controls, start, videoId]);
 
   return (
     <div
@@ -148,14 +159,22 @@ export default function Youtube({
           aria-label={`${title} — identifiant YouTube à ajouter`}
         />
       )}
-      {videoId && !activated && poster && (
+      {videoId && !activated && (
         <button
           className="youtube-player-poster"
           type="button"
           aria-label={`Lire ${title}`}
           onClick={() => setActivated(true)}
         >
-          <img src={poster} alt="" />
+          <img
+            src={thumbnail}
+            alt=""
+            onError={() => {
+              // maxresdefault doesn't exist for every video
+              const fallback = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+              if (thumbnail !== fallback) setThumbnail(fallback);
+            }}
+          />
           <span className="youtube-player-play" aria-hidden="true">
             <img src="/assets/youtube-play.svg" alt="" />
           </span>
