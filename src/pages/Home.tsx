@@ -327,7 +327,11 @@ export default function Home() {
             >
               jaajnessmain@gmail.com
             </a>
-            <a href="#" className="contact-link" data-arc-target>
+            <a
+              href="https://www.linkedin.com/in/%C3%A9li-bousquet-0aa1063b8/"
+              className="contact-link"
+              data-arc-target
+            >
               Linkedin
             </a>
             <a
