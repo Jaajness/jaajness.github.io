@@ -109,7 +109,7 @@ export default function Root() {
               Contact
             </button>
             <a
-              download={"/assets/CV_Eli_Bousquet_2026_Portfolio.docx"}
+              download={"CV_Eli_Bousquet_2026_Portfolio.docx"}
               href="#"
               className="btn-nav"
               data-arc-target
