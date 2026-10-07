@@ -1,58 +1,69 @@
-import { Outlet, useNavigate, useLocation } from "react-router"
-import { useEffect, useRef, useState } from "react"
-import { ElectricArcCursor } from "../imports/pasted_text/electric-arc-cursor"
+import { Outlet, useNavigate, useLocation } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { ElectricArcCursor } from "../imports/pasted_text/electric-arc-cursor";
 
 export default function Root() {
-  const cursorDot  = useRef<HTMLDivElement>(null)
-  const cursorRing = useRef<HTMLDivElement>(null)
-  const mouseGlow  = useRef<HTMLDivElement>(null)
-  const navigate   = useNavigate()
-  const location   = useLocation()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const cursorDot = useRef<HTMLDivElement>(null);
+  const cursorRing = useRef<HTMLDivElement>(null);
+  const mouseGlow = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const isHome = location.pathname === "/"
-
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    let trailX = 0, trailY = 0, curX = 0, curY = 0, raf = 0
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    let trailX = 0,
+      trailY = 0,
+      curX = 0,
+      curY = 0,
+      raf = 0;
 
     const onMove = (e: MouseEvent) => {
-      curX = e.clientX
-      curY = e.clientY
+      curX = e.clientX;
+      curY = e.clientY;
       if (cursorDot.current) {
-        cursorDot.current.style.left = `${curX}px`
-        cursorDot.current.style.top  = `${curY}px`
+        cursorDot.current.style.left = `${curX}px`;
+        cursorDot.current.style.top = `${curY}px`;
       }
       if (mouseGlow.current) {
-        mouseGlow.current.style.left = `${curX}px`
-        mouseGlow.current.style.top  = `${curY}px`
+        mouseGlow.current.style.left = `${curX}px`;
+        mouseGlow.current.style.top = `${curY}px`;
       }
-    }
+    };
     const animate = () => {
-      trailX += (curX - trailX) * 0.10
-      trailY += (curY - trailY) * 0.10
+      trailX += (curX - trailX) * 0.1;
+      trailY += (curY - trailY) * 0.1;
       if (cursorRing.current) {
-        cursorRing.current.style.left = `${trailX}px`
-        cursorRing.current.style.top  = `${trailY}px`
+        cursorRing.current.style.left = `${trailX}px`;
+        cursorRing.current.style.top = `${trailY}px`;
       }
-      raf = requestAnimationFrame(animate)
-    }
-    window.addEventListener("mousemove", onMove)
-    raf = requestAnimationFrame(animate)
-    return () => { window.removeEventListener("mousemove", onMove); cancelAnimationFrame(raf) }
-  }, [])
+      raf = requestAnimationFrame(animate);
+    };
+    window.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(animate);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const scrollTo = (id: string) => {
     if (!isHome) {
-      navigate("/")
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 120)
+      navigate("/");
+      setTimeout(
+        () =>
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }),
+        120,
+      );
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="portfolio-root">
@@ -62,18 +73,49 @@ export default function Root() {
         glowColor="#A40000"
         branching={2.2}
       />
-      <div ref={mouseGlow}  className="mouse-glow" />
-      <div ref={cursorDot}  className="cursor-dot" />
+      <div ref={mouseGlow} className="mouse-glow" />
+      <div ref={cursorDot} className="cursor-dot" />
       <div ref={cursorRing} className="cursor-ring" />
 
       <nav className="nav">
         <div className="container nav-inner">
-          <button className="nav-logo" data-arc-target onClick={() => navigate("/")}>EB</button>
+          <button
+            className="nav-logo"
+            data-arc-target
+            onClick={() => navigate("/")}
+          >
+            EB
+          </button>
           <div className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}>
-            <button className="nav-link" data-arc-target onClick={() => scrollTo("a-propos")}>À propos</button>
-            <button className="nav-link" data-arc-target onClick={() => scrollTo("projets")}>Projets</button>
-            <button className="nav-link" data-arc-target onClick={() => scrollTo("contact")}>Contact</button>
-            <a href="#" className="btn-nav" data-arc-target>CV</a>
+            <button
+              className="nav-link"
+              data-arc-target
+              onClick={() => scrollTo("a-propos")}
+            >
+              À propos
+            </button>
+            <button
+              className="nav-link"
+              data-arc-target
+              onClick={() => scrollTo("projets")}
+            >
+              Projets
+            </button>
+            <button
+              className="nav-link"
+              data-arc-target
+              onClick={() => scrollTo("contact")}
+            >
+              Contact
+            </button>
+            <a
+              download={"/assets/CV_Eli_Bousquet_2026_Portfolio.docx"}
+              href="#"
+              className="btn-nav"
+              data-arc-target
+            >
+              CV
+            </a>
           </div>
           <button
             className="nav-menu-toggle"
@@ -89,5 +131,5 @@ export default function Root() {
 
       <Outlet />
     </div>
-  )
+  );
 }
