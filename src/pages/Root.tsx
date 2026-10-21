@@ -110,8 +110,8 @@ export default function Root() {
               Contact
             </button>
             <a
-              download={"CV_Eli_Bousquet_2026_Portfolio.pdf"}
-              href="#"
+              download="CV_Eli_Bousquet_2026_Portfolio.pdf"
+              href="/assets/CV_Eli_Bousquet_2026_Portfolio.pdf"
               className="btn-nav"
               data-arc-target
             >

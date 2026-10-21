@@ -421,8 +421,8 @@ export default function Home() {
               Linkedin
             </a>
             <a
-              download={"CV_Eli_Bousquet_2026_Portfolio.pdf"}
-              href="#"
+              download="CV_Eli_Bousquet_2026_Portfolio.pdf"
+              href="/assets/CV_Eli_Bousquet_2026_Portfolio.pdf"
               className="btn-primary"
               data-arc-target
             >
