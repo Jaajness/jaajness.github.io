@@ -1,31 +1,31 @@
 export interface ProcessStep {
-  step: string
-  title: string
-  body: string
-  mediaLabel: string
-  mediaRatio: string
+  step: string;
+  title: string;
+  body: string;
+  mediaLabel: string;
+  mediaRatio: string;
 }
 
 export interface Project {
-  id: number
-  slug: string
-  title: string
-  platform: string
-  year: string
-  role: string
-  collaboration: string
-  tools: string[]
-  tagline: string
-  overview: string
-  process: ProcessStep[]
-  outcomes: string[]
-  links: { label: string; url: string }[]
-  aiProject: string
-  aiPresentation: string
+  id: number;
+  slug: string;
+  title: string;
+  platform: string;
+  year: string;
+  role: string;
+  collaboration: string;
+  tools: string[];
+  tagline: string;
+  overview: string;
+  process: ProcessStep[];
+  outcomes: string[];
+  links: { label: string; url: string }[];
+  aiProject: string;
+  aiPresentation: string;
 }
 
 const AI_PRESENTATION_DISCLOSURE =
-  "J’ai utilisé Figma Make comme base pour concevoir et coder la présentation de ce projet. J’ai fourni la direction artistique, les couleurs et les inspirations, adapté les propositions et vérifié le design, le contenu et les fonctionnalités."
+  "J’ai utilisé Figma Make comme base pour concevoir et coder la présentation de ce projet. J’ai fourni la direction artistique, les couleurs et les inspirations, adapté les propositions et vérifié le design, le contenu et les fonctionnalités.";
 
 export const PROJECTS: Project[] = [
   {
@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
   {
     id: 3,
     slug: "prototype-unreal-equipe",
-    title: "Jeu Unreal En Équipe",
+    title: "Jeu Unreal Engine Équipe",
     platform: "Unreal Engine · Blueprint",
     year: "2025",
     role: "Développeur Unreal & Coordinateur technique",
@@ -205,7 +205,8 @@ export const PROJECTS: Project[] = [
       "Expérience de gestion de projet en conditions réelles",
     ],
     links: [{ label: "Voir le prototype", url: "#" }],
-    aiProject: "Aucune IA générative n’a été utilisée par Éli pour réaliser sa partie de ce projet collectif.",
+    aiProject:
+      "Aucune IA générative n’a été utilisée par Éli pour réaliser sa partie de ce projet collectif.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
   },
   {
@@ -270,6 +271,66 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 5,
+    slug: "q-tipousse",
+    title: "Site Web Q-tipousse",
+    platform: "Web · JavaScript",
+    year: "2026",
+    role: "Développeur Web",
+    collaboration: "Projet collectif · Équipe Erreur Fatale",
+    tools: ["HTML / CSS", "JavaScript", "Figma"],
+    tagline:
+      "Site web conçu et développé en équipe en 36 heures lors du Webjam 2026.",
+    overview:
+      "Q-tipousse a été réalisé en 36 heures par l’équipe Erreur Fatale dans le cadre du Webjam 2026. Le projet s’est démarqué par son excellence technique, créative et collaborative, et a reçu le Grand Prix du meilleur site remis par les juges.",
+    process: [
+      {
+        step: "01",
+        title: "Idéation & Répartition",
+        body: "Définition rapide du concept, de la direction visuelle et des responsabilités de chaque membre afin de lancer la production dans un délai très court.",
+        mediaLabel: "Document · Concept du projet",
+        mediaRatio: "16 / 9",
+      },
+      {
+        step: "02",
+        title: "Conception de l’interface",
+        body: "Création de la structure des pages, des composants visuels et des parcours principaux en gardant une identité cohérente.",
+        mediaLabel: "Capture d’écran · Maquettes",
+        mediaRatio: "16 / 9",
+      },
+      {
+        step: "03",
+        title: "Développement collaboratif",
+        body: "Intégration des contenus et développement simultané des fonctionnalités avec des validations régulières entre les membres de l’équipe.",
+        mediaLabel: "Capture d’écran · Développement",
+        mediaRatio: "16 / 9",
+      },
+      {
+        step: "04",
+        title: "Tests & Ajustements",
+        body: "Tests fonctionnels, corrections des problèmes d’affichage et optimisation de l’expérience avant la remise finale.",
+        mediaLabel: "Capture d’écran · Tests",
+        mediaRatio: "16 / 9",
+      },
+      {
+        step: "05",
+        title: "Présentation finale",
+        body: "Finalisation et présentation du site aux juges du Webjam après 36 heures de conception et de développement.",
+        mediaLabel: "Image · Présentation du projet",
+        mediaRatio: "16 / 9",
+      },
+    ],
+    outcomes: [
+      "Grand Prix du meilleur site au Webjam 2026",
+      "Site complet réalisé en 36 heures",
+      "Collaboration efficace au sein d’une équipe de quatre personnes",
+      "Projet reconnu pour son excellence technique et créative",
+    ],
+    links: [{ label: "Voir le projet", url: "#" }],
+    aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
+    aiPresentation: AI_PRESENTATION_DISCLOSURE,
+  },
+  {
+    id: 6,
     slug: "route-vers-infini",
     title: "Route vers l’infini en 3D",
     platform: "Blender · Animation 3D",
@@ -328,4 +389,4 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
   },
-]
+];

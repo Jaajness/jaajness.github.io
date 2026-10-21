@@ -1,7 +1,8 @@
-import { createBrowserRouter } from "react-router"
-import Root from "./pages/Root"
-import Home from "./pages/Home"
-import ProjectDetail from "./pages/ProjectDetail"
+import { createBrowserRouter } from "react-router";
+import Root from "./pages/Root";
+import Home from "./pages/Home";
+import ProjectDetail from "./pages/ProjectDetail";
+import AIDeclaration from "./pages/AIDeclaration";
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +11,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "projet/:slug", Component: ProjectDetail },
+      { path: "declaration-ia", Component: AIDeclaration },
     ],
   },
-])
+]);

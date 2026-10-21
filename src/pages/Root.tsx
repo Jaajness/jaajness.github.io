@@ -1,6 +1,6 @@
 import { Outlet, useNavigate, useLocation } from "react-router";
 import { useEffect, useRef, useState } from "react";
-import { ElectricArcCursor } from "../imports/pasted_text/electric-arc-cursor";
+import { ElectricArcCursor } from "../components/ElectricArcCursor";
 
 export default function Root() {
   const cursorDot = useRef<HTMLDivElement>(null);
@@ -14,6 +14,7 @@ export default function Root() {
 
   useEffect(() => {
     setMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname]);
 
   useEffect(() => {
@@ -82,7 +83,7 @@ export default function Root() {
           <button
             className="nav-logo"
             data-arc-target
-            onClick={() => navigate("/")}
+            onClick={() => scrollTo("hub")}
           >
             EB
           </button>
@@ -109,7 +110,7 @@ export default function Root() {
               Contact
             </button>
             <a
-              download={"CV_Eli_Bousquet_2026_Portfolio.docx"}
+              download={"CV_Eli_Bousquet_2026_Portfolio.pdf"}
               href="#"
               className="btn-nav"
               data-arc-target

@@ -1,5 +1,9 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import ProjectCard from "../components/ProjectCard";
+import ProjectsSwiper from "../components/ProjectsSwiper";
+import useMediaQuery from "../components/useMediaQuery";
 import Youtube from "../components/Youtube";
+import ZoomMedia from "../components/ZoomMedia";
 import { PROJECTS } from "../data/projects";
 
 const PRESENTATION_VIDEO_ID = "4oHlfGI1rvI";
@@ -31,10 +35,17 @@ const SOFT_SKILLS = [
   "Soucis du détail",
 ];
 
-const HUB_LINKS = [
+const HUB_LINKS: {
+  label: string;
+  desc: string;
+  /** External (or hash) link, opened in a new tab */
+  href?: string;
+  /** Internal route, navigated to in the same tab */
+  to?: string;
+}[] = [
   {
-    label: "Vidéo de présentation",
-    desc: "Extraits vidéo sélectionnés",
+    label: "Présentation",
+    desc: "Vidéo de ma personne",
     href: "#presentation",
   },
   {
@@ -54,8 +65,8 @@ const HUB_LINKS = [
   },
   {
     label: "Utilisation de l’IA",
-    desc: "Déclaration publique",
-    href: "#utilisation-ia",
+    desc: "Déclaration",
+    to: "/declaration-ia",
   },
 ];
 
@@ -64,8 +75,20 @@ const PROJECT_IMAGES = [
   "/assets/3d88e.png",
   "/assets/3330e.png",
   "/assets/a512c.png",
+  "/assets/aca36.png",
   "/assets/6970d.png",
 ];
+
+const AWARD_PROJECT_SLUGS = new Set(["project-x", "q-tipousse"]);
+
+// Same cover tweaks as the grid's :nth-child(3) / :nth-child(4) rules
+const PROJECT_IMAGE_POSITIONS: Record<number, string> = {
+  2: "35% center",
+  3: "center 43%",
+};
+
+// No hover on touch screens, so cards are shown in a swiper instead of the grid
+const SWIPER_QUERY = "(max-width: 720px), (hover: none)";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -88,6 +111,8 @@ function SectionHeading({
 
 export default function Home() {
   const navigate = useNavigate();
+  const useSwiper = useMediaQuery(SWIPER_QUERY);
+  const openProject = (slug: string) => navigate(`/projet/${slug}`);
 
   return (
     <>
@@ -143,18 +168,36 @@ export default function Home() {
             </div>
 
             <nav className="hub-nav" aria-label="Liens professionnels">
-              {HUB_LINKS.map((item) => (
-                <a
-                  key={item.label}
-                  className="hub-card"
-                  href={item.href}
-                  data-arc-target
-                >
-                  <span className="hub-card-label">{item.label}</span>
-                  <span className="hub-card-desc">{item.desc}</span>
-                  <span className="hub-card-arrow">→</span>
-                </a>
-              ))}
+              {HUB_LINKS.map((item) => {
+                const content = (
+                  <>
+                    <span className="hub-card-label">{item.label}</span>
+                    <span className="hub-card-desc">{item.desc}</span>
+                    <span className="hub-card-arrow">→</span>
+                  </>
+                );
+                return item.to ? (
+                  <Link
+                    key={item.label}
+                    className="hub-card"
+                    to={item.to}
+                    data-arc-target
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    className="hub-card"
+                    href={item.href}
+                    data-arc-target
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {content}
+                  </a>
+                );
+              })}
             </nav>
           </div>
         </div>
@@ -252,6 +295,71 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="feature-block awards-block">
+            <SectionHeading number="—">Prix</SectionHeading>
+            <div className="awards-list">
+              <article className="award-row">
+                <div className="award-copy">
+                  <span className="step-num">01</span>
+                  <h3>Agences TIM Awards</h3>
+                  <p>
+                    Notre équipe a <strong>créé</strong> un site web,{" "}
+                    <strong>Project X</strong>, et a gagné le{" "}
+                    <strong>Grand Prix Agence TIM</strong>, remis au projet le
+                    plus <strong>complet</strong> et{" "}
+                    <strong>professionnel</strong> : concept{" "}
+                    <strong>clair</strong>, contenu <strong>pertinent</strong>,
+                    design <strong>cohérent</strong> et bonne{" "}
+                    <strong>intégration WordPress</strong>.
+                  </p>
+                </div>
+                <ZoomMedia
+                  className="award-media"
+                  title="Agences TIM Awards"
+                  images={[
+                    {
+                      src: "/assets/0dfc8.png",
+                      alt: "Grand Prix des Agences TIM Awards",
+                    },
+                  ]}
+                />
+              </article>
+
+              <article className="award-row award-row-reverse">
+                <div className="award-copy">
+                  <span className="step-num">02</span>
+                  <h3>Webjam édition 2026</h3>
+                  <p>
+                    Lors de l’<strong>édition 2026</strong>, notre équipe «{" "}
+                    <strong>Erreur Fatale</strong> » a <strong>créé</strong> un
+                    site web en 36h, <strong>Q-tipousse</strong>, et a été{" "}
+                    <strong>couronnée</strong> pour le projet s’étant le plus{" "}
+                    <strong>démarqué</strong> en{" "}
+                    <strong>excellence technique</strong>,{" "}
+                    <strong>créative</strong> et <strong>collaborative</strong>.
+                    Composée de <strong>Yoan Robitaille</strong>,{" "}
+                    <strong>Éli Bousquet</strong> (moi),{" "}
+                    <strong>Miro Leblanc</strong> et{" "}
+                    <strong>Nathan Fortier</strong>, notre équipe a su présenter
+                    un <strong>projet remarquable</strong> afin de repartir avec
+                    le <strong>Grand Prix</strong> du{" "}
+                    <strong>meilleur site</strong> remis par les juges.
+                  </p>
+                </div>
+                <ZoomMedia
+                  className="award-media"
+                  title="Webjam édition 2026"
+                  images={[
+                    {
+                      src: "/assets/7d15e.png",
+                      alt: "Équipe gagnante du Webjam 2026",
+                    },
+                  ]}
+                />
+              </article>
+            </div>
+          </div>
+
           <div id="presentation" className="feature-block">
             <SectionHeading number="—">Vidéo de présentation</SectionHeading>
 
@@ -266,59 +374,37 @@ export default function Home() {
       <section id="projets" className="section section-alt">
         <div className="container">
           <SectionHeading number="02">Projets</SectionHeading>
-          <div className="projects-grid">
-            {PROJECTS.map((project, index) => (
-              <button
-                key={project.id}
-                className="project-card"
-                data-arc-target
-                onClick={() => navigate(`/projet/${project.slug}`)}
-              >
-                <img src={PROJECT_IMAGES[index]} alt="" />
-                <span className="project-card-shade" />
-
-                <span className="project-card-details">
-                  <span className="project-card-number">
-                    {String(project.id).padStart(2, "0")}
-                  </span>
-                  <span className="project-card-detail-title">
-                    {project.title}
-                  </span>
-                  <span className="project-card-description">
-                    {project.tagline}
-                  </span>
-                  <span className="project-card-footer">
-                    <span>{project.platform}</span>
-                    <span>Voir →</span>
-                  </span>
-                </span>
-                <span className="project-spark" aria-hidden="true">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </button>
-            ))}
-          </div>
+          {useSwiper ? (
+            <ProjectsSwiper
+              projects={PROJECTS}
+              images={PROJECT_IMAGES}
+              awardSlugs={AWARD_PROJECT_SLUGS}
+              imagePositions={PROJECT_IMAGE_POSITIONS}
+              onOpen={openProject}
+            />
+          ) : (
+            <div className="projects-grid">
+              {PROJECTS.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  image={PROJECT_IMAGES[index]}
+                  awarded={AWARD_PROJECT_SLUGS.has(project.slug)}
+                  onOpen={openProject}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="stage-section">
-        <div className="container">
-          <h2>Recherche de stage</h2>
+      <section id="contact" className="stage-section">
+        <div className="container contact-wrap">
+          <SectionHeading number="03">Recherche de stage</SectionHeading>
           <p>
             J’ai un intérêt particulier pour les stages de jeux-vidéo et
             d’animation 3D!
           </p>
-        </div>
-      </section>
-
-      <section id="contact" className="section contact-section">
-        <div className="container contact-wrap">
-          <SectionHeading number="03">Contact</SectionHeading>
-          <p className="contact-sub">Travaillons ensemble.</p>
           <div className="contact-links">
             <a
               href="mailto:jaajnessmain@gmail.com"
@@ -335,30 +421,13 @@ export default function Home() {
               Linkedin
             </a>
             <a
-              download={"CV_Eli_Bousquet_2026_Portfolio.docx"}
+              download={"CV_Eli_Bousquet_2026_Portfolio.pdf"}
               href="#"
               className="btn-primary"
               data-arc-target
             >
               Télécharger le CV
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="utilisation-ia" className="section ai-section">
-        <div className="container">
-          <SectionHeading number="—">Utilisation de l’IA</SectionHeading>
-          <div className="ai-statement">
-            <span className="ai-statement-label">Déclaration publique</span>
-            <p>
-              Pour concevoir et développer ce portfolio, j’ai utilisé{" "}
-              <strong>Figma Make</strong> comme base afin d’explorer la
-              structure, le design et le code. J’ai personnellement fourni la
-              direction artistique, les couleurs et les inspirations, adapté les
-              propositions, puis vérifié le design, les contenus et les
-              fonctionnalités.
-            </p>
           </div>
         </div>
       </section>
