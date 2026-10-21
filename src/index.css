@@ -1968,9 +1968,7 @@ strong {
     transform 0.4s,
     box-shadow 0.4s;
 }
-.projects-swiper
-  .swiper-slide:not(.swiper-slide-active)
-  .project-card.is-revealed {
+.projects-swiper .swiper-slide:not(.swiper-slide-active) .project-card.is-revealed {
   opacity: 0.55;
   transform: scale(0.95);
   box-shadow: none;
@@ -2180,9 +2178,7 @@ strong {
 .ai-closing {
   padding-top: 24px;
 }
-.ai-closing .ai-statement p {
-  text-align: left;
-}
+.ai-closing .ai-statement p { text-align: left; }
 .ai-closing .ai-statement {
   margin-top: 0;
 }
@@ -2745,4 +2741,81 @@ strong {
     height: 2px;
     border-radius: 2px;
   }
+}
+
+/* ───────────────────────── 404 page ───────────────────────── */
+.not-found {
+  min-height: 100vh;
+  padding: 120px 0 64px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    ellipse 700px 420px at 50% 45%,
+    rgba(164, 0, 0, 0.16),
+    transparent 70%
+  );
+  text-align: center;
+}
+.not-found-inner {
+  max-width: 640px;
+}
+.not-found-tag {
+  color: var(--primary);
+  font-family: "Cousine:Bold", monospace;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.not-found h1 {
+  margin: 12px 0 4px;
+  font-family: "Poppins:Black", Poppins, sans-serif;
+  font-size: clamp(96px, 26vw, 210px);
+  line-height: 1;
+  letter-spacing: -2px;
+  animation: not-found-flicker 4.5s infinite;
+}
+.not-found h1 span {
+  color: var(--primary);
+  text-shadow: 0 0 28px rgba(164, 0, 0, 0.55);
+}
+.not-found-bolt {
+  display: block;
+  width: min(360px, 80%);
+  height: 28px;
+  margin: 0 auto 28px;
+}
+.not-found-bolt path {
+  fill: none;
+  stroke: #ffaaaa;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px #a40000) drop-shadow(0 0 14px #a40000);
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: not-found-zap 3.2s ease-out infinite;
+}
+.not-found h2 {
+  font-family: "Poppins:SemiBold", Poppins, sans-serif;
+  font-size: clamp(20px, 4vw, 26px);
+}
+.not-found p {
+  max-width: 460px;
+  margin: 12px auto 36px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+@keyframes not-found-zap {
+  0% { stroke-dashoffset: 420; opacity: 1; }
+  22% { stroke-dashoffset: 0; opacity: 1; }
+  40% { opacity: 0.2; }
+  46% { opacity: 1; }
+  70% { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes not-found-flicker {
+  0%, 92%, 96%, 100% { opacity: 1; }
+  94% { opacity: 0.82; }
+  98% { opacity: 0.9; }
 }

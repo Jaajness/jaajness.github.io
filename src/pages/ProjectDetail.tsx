@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import ZoomMedia from "../components/ZoomMedia";
+import NotFound from "./NotFound";
 import { PROJECTS } from "../data/projects";
 
 const UNITY_ASSETS = {
@@ -9,7 +10,7 @@ const UNITY_ASSETS = {
     "/assets/df16b.png",
     "/assets/2456e.png",
     "/assets/9dcdf.png",
-    "/assets/5358b.png",
+    ["/assets/22a0e.png", "/assets/5358b.png"],
     "/assets/7cf07.png",
   ],
   result: "/assets/a6928.png",
@@ -115,18 +116,7 @@ export default function ProjectDetail() {
   const index = PROJECTS.findIndex((item) => item.slug === slug);
   const project = PROJECTS[index];
 
-  if (!project) {
-    return (
-      <main className="detail-not-found">
-        <div className="container">
-          <p>Projet introuvable.</p>
-          <button className="btn-secondary" onClick={() => navigate("/")}>
-            ← Retour
-          </button>
-        </div>
-      </main>
-    );
-  }
+  if (!project) return <NotFound />;
 
   const isUnity = project.id === 1;
   const nextProject = PROJECTS[index + 1] ?? null;

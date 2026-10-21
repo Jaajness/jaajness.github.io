@@ -25,7 +25,7 @@ export interface Project {
 }
 
 const AI_PRESENTATION_DISCLOSURE =
-  "J’ai utilisé Figma Make comme base pour concevoir et coder la présentation de ce projet. J’ai fourni la direction artistique, les couleurs et les inspirations, adapté les propositions et vérifié le design, le contenu et les fonctionnalités.";
+  "J’ai utilisé Figma Make comme base pour concevoir et coder la présentation de ce projet, puis Claude pour corriger et améliorer certaines parties du code et du design. J’ai fourni la direction artistique, les couleurs et les inspirations, adapté les propositions et vérifié le design, le contenu et les fonctionnalités.";
 
 export const PROJECTS: Project[] = [
   {
