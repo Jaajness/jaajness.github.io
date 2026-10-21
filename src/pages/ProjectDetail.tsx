@@ -10,7 +10,7 @@ const UNITY_ASSETS = {
     "/assets/df16b.png",
     "/assets/2456e.png",
     "/assets/9dcdf.png",
-    ["/assets/22a0e.png", "/assets/5358b.png"],
+    "/assets/5358b.png",
     "/assets/7cf07.png",
   ],
   result: "/assets/a6928.png",

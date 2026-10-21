@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
   {
     id: 3,
     slug: "prototype-unreal-equipe",
-    title: "Jeu Unreal Engine Équipe",
+    title: "Jeu Unreal En Équipe",
     platform: "Unreal Engine · Blueprint",
     year: "2025",
     role: "Développeur Unreal & Coordinateur technique",
