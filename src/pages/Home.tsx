@@ -6,7 +6,7 @@ import Youtube from "../components/Youtube";
 import ZoomMedia from "../components/ZoomMedia";
 import { PROJECTS } from "../data/projects";
 
-const PRESENTATION_VIDEO_ID = "4oHlfGI1rvI";
+const PRESENTATION_VIDEO_ID = "CBYzSp6-LXQ";
 
 const SKILLS = [
   "Animation d’environnements 3D",
