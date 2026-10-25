@@ -1,11 +1,15 @@
 import { Outlet, useNavigate, useLocation } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { ElectricArcCursor } from "../components/ElectricArcCursor";
+import useMediaQuery from "../components/useMediaQuery";
 
 export default function Root() {
   const cursorDot = useRef<HTMLDivElement>(null);
   const cursorRing = useRef<HTMLDivElement>(null);
   const mouseGlow = useRef<HTMLDivElement>(null);
+
+  const hasMouse = useMediaQuery("(hover: hover) and (pointer: fine)");
+
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +22,7 @@ export default function Root() {
   }, [location.pathname]);
 
   useEffect(() => {
+    if (!hasMouse) return;
     let trailX = 0,
       trailY = 0,
       curX = 0,
@@ -51,7 +56,7 @@ export default function Root() {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [hasMouse]);
 
   const scrollTo = (id: string) => {
     if (!isHome) {
@@ -68,15 +73,19 @@ export default function Root() {
 
   return (
     <div className="portfolio-root">
-      <ElectricArcCursor
-        snapDistance={140}
-        arcColor="#ffaaaa"
-        glowColor="#A40000"
-        branching={2.2}
-      />
-      <div ref={mouseGlow} className="mouse-glow" />
-      <div ref={cursorDot} className="cursor-dot" />
-      <div ref={cursorRing} className="cursor-ring" />
+      {hasMouse && (
+        <>
+          <ElectricArcCursor
+            snapDistance={140}
+            arcColor="#ffaaaa"
+            glowColor="#A40000"
+            branching={2.2}
+          />
+          <div ref={mouseGlow} className="mouse-glow" />
+          <div ref={cursorDot} className="cursor-dot" />
+          <div ref={cursorRing} className="cursor-ring" />
+        </>
+      )}
 
       <nav className="nav">
         <div className="container nav-inner">
