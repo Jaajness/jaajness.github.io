@@ -56,12 +56,18 @@ export const ElectricArcCursor: React.FC<ArcCursorProps> = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // The bitmap must match the canvas' ACTUAL on-screen size (1 canvas px =
+    // 1 CSS px). Using window.innerWidth is wrong when a scrollbar takes up
+    // space: the bitmap gets squeezed and everything drifts left.
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width);
+      canvas.height = Math.round(rect.height);
     };
     resize();
     window.addEventListener("resize", resize);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(canvas);
 
     const onMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
@@ -379,6 +385,7 @@ export const ElectricArcCursor: React.FC<ArcCursorProps> = ({
 
     return () => {
       window.removeEventListener("resize", resize);
+      resizeObserver.disconnect();
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("click", onClick);
       cancelAnimationFrame(raf);
@@ -390,10 +397,9 @@ export const ElectricArcCursor: React.FC<ArcCursorProps> = ({
       ref={canvasRef}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
+        inset: 0,
+        width: "100%",
+        height: "100%",
         pointerEvents: "none",
         zIndex: 9999,
       }}
