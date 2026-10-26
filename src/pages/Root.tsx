@@ -134,7 +134,7 @@ export default function Root() {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <img src="/assets/406c7.svg" alt="" />
+            <img src="/assets/icon-menu.svg" alt="" />
           </button>
         </div>
       </nav>

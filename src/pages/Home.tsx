@@ -84,12 +84,12 @@ const scrollToId = (id: string) => {
 };
 
 const PROJECT_IMAGES = [
-  "/assets/21dd5.png",
-  "/assets/3d88e.png",
-  "/assets/3330e.png",
-  "/assets/a512c.png",
-  "/assets/aca36.png",
-  "/assets/6970d.png",
+  "/assets/cover-unity-iceberg.png",
+  "/assets/cover-unreal-lappel.png",
+  "/assets/cover-unreal-equipe.png",
+  "/assets/cover-project-x.png",
+  "/assets/cover-q-tipousse.png",
+  "/assets/cover-route-infini-3d.png",
 ];
 
 const AWARD_PROJECT_SLUGS = new Set(["project-x", "q-tipousse"]);
@@ -134,7 +134,7 @@ export default function Home() {
         <div className="hero-scan" />
         <div className="hero-ring" />
         <div className="hero-art" aria-hidden="true">
-          <img src="/assets/fb92f.png" alt="" />
+          <img src="/assets/hero-art-character.png" alt="" />
         </div>
         <span className="hero-sidetag">Éli Bousquet — Portfolio 2026</span>
         <div className="hero-wrapper">
@@ -238,7 +238,7 @@ export default function Home() {
           <SectionHeading number="01">À propos</SectionHeading>
           <figure className="about-portrait about-portrait-mobile">
             <div className="about-portrait-frame">
-              <img src="/assets/d580d.png" alt="Portrait d’Éli Bousquet" />
+              <img src="/assets/portrait-eli.png" alt="Portrait d’Éli Bousquet" />
             </div>
             <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
           </figure>
@@ -296,7 +296,7 @@ export default function Home() {
             <div className="about-column about-column-right">
               <figure className="about-portrait about-portrait-desktop">
                 <div className="about-portrait-frame">
-                  <img src="/assets/d580d.png" alt="Portrait d’Éli Bousquet" />
+                  <img src="/assets/portrait-eli.png" alt="Portrait d’Éli Bousquet" />
                 </div>
                 <figcaption>
                   Crédit: Image prise par Alexandre Donato
@@ -345,7 +345,7 @@ export default function Home() {
                   title="Agences TIM Awards"
                   images={[
                     {
-                      src: "/assets/0dfc8.png",
+                      src: "/assets/award-agences-tim.png",
                       alt: "Grand Prix des Agences TIM Awards",
                     },
                   ]}
@@ -357,15 +357,18 @@ export default function Home() {
                   <span className="step-num">02</span>
                   <h3>Webjam édition 2026</h3>
                   <p>
-                    Lors de l’édition 2026, notre équipe «{" "}
-                    <strong>Erreur Fatale</strong> » a crée un site web en 36h,{" "}
-                    <strong>Q-tipousse</strong>, et a été couronnée pour le
-                    projet s’étant le plus démarqué en{" "}
-                    <strong>excellence</strong> technique, créative et
-                    collaborative. Composée de Yoan Robitaille, Miro Leblanc,
-                    Nathan Fortier et <strong>moi-même,</strong> notre équipe a
-                    su présenter un projet remarquable afin de repartir avec le{" "}
-                    <strong>Grand Prix</strong> du{" "}
+                    <strong>Erreur Fatale</strong> » a <strong>créé</strong> un
+                    site web en 36h, <strong>Q-tipousse</strong>, et a été{" "}
+                    <strong>couronnée</strong> pour le projet s’étant le plus{" "}
+                    <strong>démarqué</strong> en{" "}
+                    <strong>excellence technique</strong>,{" "}
+                    <strong>créative</strong> et <strong>collaborative</strong>.
+                    Composée de <strong>Yoan Robitaille</strong>,{" "}
+                    <strong>Éli Bousquet</strong> (moi),{" "}
+                    <strong>Miro Leblanc</strong> et{" "}
+                    <strong>Nathan Fortier</strong>, notre équipe a su présenter
+                    un <strong>projet remarquable</strong> afin de repartir avec
+                    le <strong>Grand Prix</strong> du{" "}
                     <strong>meilleur site</strong> remis par les juges.
                   </p>
                 </div>
@@ -374,7 +377,7 @@ export default function Home() {
                   title="Webjam édition 2026"
                   images={[
                     {
-                      src: "/assets/7d15e.png",
+                      src: "/assets/award-webjam-2026.png",
                       alt: "Équipe gagnante du Webjam 2026",
                     },
                   ]}

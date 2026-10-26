@@ -4,16 +4,16 @@ import NotFound from "./NotFound";
 import { PROJECTS } from "../data/projects";
 
 const UNITY_ASSETS = {
-  hero: "/assets/3d6ef.png",
-  context: "/assets/713af.png",
+  hero: "/assets/unity-hero-banner.png",
+  context: "/assets/unity-context-bins.png",
   steps: [
-    "/assets/df16b.png",
-    "/assets/2456e.png",
-    "/assets/9dcdf.png",
-    "/assets/5358b.png",
-    "/assets/7cf07.png",
+    "/assets/unity-step1-schedule.png",
+    "/assets/unity-step2-scene-colliders.png",
+    "/assets/unity-step3-animator.png",
+    "/assets/unity-step4-audio.png",
+    "/assets/unity-step5-test-ui.png",
   ],
-  result: "/assets/a6928.png",
+  result: "/assets/unity-result-gameplay.png",
 };
 
 function DetailHeading({ children }: { children: React.ReactNode }) {
@@ -63,7 +63,7 @@ function ProjectImage({
       ) : (
         <span>{alt}</span>
       )}
-      {play && <img className="project-play" src="/assets/6c2f4.svg" alt="" />}
+      {play && <img className="project-play" src="/assets/icon-play-overlay.svg" alt="" />}
     </div>
   );
 }
