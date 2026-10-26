@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import DynamicPageTitle from "../components/DynamicPageTitle";
 
 type Tag = "Code" | "Design" | "Contenu";
 
@@ -88,8 +89,8 @@ const CLAUDE_CONTRIBUTIONS: Contribution[] = [
     title: "CV téléchargeable",
     body: (
       <>
-        Adaptation du contenu et de la mise en page de mon CV aux compétences
-        et au design de ce portfolio.
+        Adaptation du contenu et de la mise en page de mon CV aux compétences et
+        au design de ce portfolio.
       </>
     ),
     tags: ["Design", "Contenu"],
@@ -121,6 +122,8 @@ function DetailHeading({ children }: { children: React.ReactNode }) {
 
 export default function AIDeclaration() {
   const navigate = useNavigate();
+
+  DynamicPageTitle("Utilisation de l’IA");
 
   return (
     <>
@@ -171,9 +174,9 @@ export default function AIDeclaration() {
               <p className="detail-lead">
                 Le site a été <strong>entièrement généré par Figma Make</strong>{" "}
                 à partir du <strong>design system</strong> que je lui ai fourni.
-                Le résultat était un site <strong>complet et fonctionnel</strong>
-                , que j’ai ensuite fait évoluer avec mes propres{" "}
-                <strong>modifications</strong>.
+                Le résultat était un site{" "}
+                <strong>complet et fonctionnel</strong>, que j’ai ensuite fait
+                évoluer avec mes propres <strong>modifications</strong>.
               </p>
             </div>
             <ul className="ai-facts">
@@ -193,8 +196,9 @@ export default function AIDeclaration() {
             <p className="detail-lead ai-lead">
               En complément, j’ai travaillé avec <strong>Claude</strong>{" "}
               (Anthropic) pour <strong>faire fonctionner correctement</strong>{" "}
-              certaines parties du site, et pour <strong>contribuer au code</strong>{" "}
-              et au <strong>design</strong> de plusieurs éléments.
+              certaines parties du site, et pour{" "}
+              <strong>contribuer au code</strong> et au <strong>design</strong>{" "}
+              de plusieurs éléments.
             </p>
             <div className="ai-contrib-list">
               {CLAUDE_CONTRIBUTIONS.map((item, index) => (

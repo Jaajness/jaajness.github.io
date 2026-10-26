@@ -5,6 +5,7 @@ import useMediaQuery from "../components/useMediaQuery";
 import Youtube from "../components/Youtube";
 import ZoomMedia from "../components/ZoomMedia";
 import { PROJECTS } from "../data/projects";
+import DynamicPageTitle from "../components/DynamicPageTitle";
 
 const PRESENTATION_VIDEO_ID = "CBYzSp6-LXQ";
 
@@ -127,6 +128,8 @@ export default function Home() {
   const useSwiper = useMediaQuery(SWIPER_QUERY);
   const openProject = (slug: string) => navigate(`/projet/${slug}`);
 
+  DynamicPageTitle();
+
   return (
     <>
       <section id="hub" className="hero">
@@ -238,7 +241,10 @@ export default function Home() {
           <SectionHeading number="01">À propos</SectionHeading>
           <figure className="about-portrait about-portrait-mobile">
             <div className="about-portrait-frame">
-              <img src="/assets/portrait-eli.png" alt="Portrait d’Éli Bousquet" />
+              <img
+                src="/assets/portrait-eli.png"
+                alt="Portrait d’Éli Bousquet"
+              />
             </div>
             <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
           </figure>
@@ -296,7 +302,10 @@ export default function Home() {
             <div className="about-column about-column-right">
               <figure className="about-portrait about-portrait-desktop">
                 <div className="about-portrait-frame">
-                  <img src="/assets/portrait-eli.png" alt="Portrait d’Éli Bousquet" />
+                  <img
+                    src="/assets/portrait-eli.png"
+                    alt="Portrait d’Éli Bousquet"
+                  />
                 </div>
                 <figcaption>
                   Crédit: Image prise par Alexandre Donato

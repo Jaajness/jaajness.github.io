@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router";
+import DynamicPageTitle from "../components/DynamicPageTitle";
 
 /** In-app 404 (unknown route or unknown project). Mirrors public/404.html. */
 export default function NotFound() {
   const navigate = useNavigate();
+  DynamicPageTitle("Page introuvable");
 
   return (
     <main className="not-found">

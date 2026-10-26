@@ -14,8 +14,12 @@ export default function Root() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { open: menuOpen, toggle: toggleMenu, close: closeMenu, toggleRef } =
-    useMobileMenu();
+  const {
+    open: menuOpen,
+    toggle: toggleMenu,
+    close: closeMenu,
+    toggleRef,
+  } = useMobileMenu();
 
   const isHome = location.pathname === "/";
 

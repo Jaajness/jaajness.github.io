@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import ZoomMedia from "../components/ZoomMedia";
 import NotFound from "./NotFound";
 import { PROJECTS } from "../data/projects";
+import DynamicPageTitle from "../components/DynamicPageTitle";
 
 const UNITY_ASSETS = {
   hero: "/assets/unity-hero-banner.png",
@@ -121,6 +122,7 @@ export default function ProjectDetail() {
   const navigate = useNavigate();
   const index = PROJECTS.findIndex((item) => item.slug === slug);
   const project = PROJECTS[index];
+  DynamicPageTitle(project ? project.title : "Page introuvable");
 
   if (!project) return <NotFound />;
 
