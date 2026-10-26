@@ -38,15 +38,17 @@ const SOFT_SKILLS = [
 const HUB_LINKS: {
   label: string;
   desc: string;
-  /** External (or hash) link, opened in a new tab */
+  /** External link, opened in a new tab */
   href?: string;
   /** Internal route, navigated to in the same tab */
   to?: string;
+  /** id of an element on this page: smooth-scrolls there (no navigation) */
+  anchor?: string;
 }[] = [
   {
     label: "Présentation",
     desc: "Vidéo de ma personne",
-    href: "#presentation",
+    anchor: "presentation",
   },
   {
     label: "LinkedIn",
@@ -69,6 +71,17 @@ const HUB_LINKS: {
     to: "/declaration-ia",
   },
 ];
+
+// Height of the fixed nav (64px) + some breathing room
+const NAV_OFFSET = 0;
+
+/** Smooth-scrolls to an element of the page, keeping it clear of the fixed nav. */
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+};
 
 const PROJECT_IMAGES = [
   "/assets/21dd5.png",
@@ -176,6 +189,23 @@ export default function Home() {
                     <span className="hub-card-arrow">→</span>
                   </>
                 );
+                if (item.anchor) {
+                  const id = item.anchor;
+                  return (
+                    <a
+                      key={item.label}
+                      className="hub-card"
+                      href={`#${id}`}
+                      data-arc-target
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToId(id);
+                      }}
+                    >
+                      {content}
+                    </a>
+                  );
+                }
                 return item.to ? (
                   <Link
                     key={item.label}
@@ -303,14 +333,11 @@ export default function Home() {
                   <span className="step-num">01</span>
                   <h3>Agences TIM Awards</h3>
                   <p>
-                    Notre équipe a <strong>créé</strong> un site web,{" "}
-                    <strong>Project X</strong>, et a gagné le{" "}
-                    <strong>Grand Prix Agence TIM</strong>, remis au projet le
-                    plus <strong>complet</strong> et{" "}
-                    <strong>professionnel</strong> : concept{" "}
-                    <strong>clair</strong>, contenu <strong>pertinent</strong>,
-                    design <strong>cohérent</strong> et bonne{" "}
-                    <strong>intégration WordPress</strong>.
+                    Notre équipe a créé un site web, <strong>Project X</strong>,
+                    et a gagné le <strong>Grand Prix Agence TIM</strong>, remis
+                    au projet le plus complet et <strong>professionnel</strong>{" "}
+                    : concept clair, contenu pertinent, design cohérent et bonne{" "}
+                    intégration <strong>WordPress</strong>.
                   </p>
                 </div>
                 <ZoomMedia
@@ -330,19 +357,15 @@ export default function Home() {
                   <span className="step-num">02</span>
                   <h3>Webjam édition 2026</h3>
                   <p>
-                    Lors de l’<strong>édition 2026</strong>, notre équipe «{" "}
-                    <strong>Erreur Fatale</strong> » a <strong>créé</strong> un
-                    site web en 36h, <strong>Q-tipousse</strong>, et a été{" "}
-                    <strong>couronnée</strong> pour le projet s’étant le plus{" "}
-                    <strong>démarqué</strong> en{" "}
-                    <strong>excellence technique</strong>,{" "}
-                    <strong>créative</strong> et <strong>collaborative</strong>.
-                    Composée de <strong>Yoan Robitaille</strong>,{" "}
-                    <strong>Éli Bousquet</strong> (moi),{" "}
-                    <strong>Miro Leblanc</strong> et{" "}
-                    <strong>Nathan Fortier</strong>, notre équipe a su présenter
-                    un <strong>projet remarquable</strong> afin de repartir avec
-                    le <strong>Grand Prix</strong> du{" "}
+                    Lors de l’édition 2026, notre équipe «{" "}
+                    <strong>Erreur Fatale</strong> » a crée un site web en 36h,{" "}
+                    <strong>Q-tipousse</strong>, et a été couronnée pour le
+                    projet s’étant le plus démarqué en{" "}
+                    <strong>excellence</strong> technique, créative et
+                    collaborative. Composée de Yoan Robitaille, Miro Leblanc,
+                    Nathan Fortier et <strong>moi-même,</strong> notre équipe a
+                    su présenter un projet remarquable afin de repartir avec le{" "}
+                    <strong>Grand Prix</strong> du{" "}
                     <strong>meilleur site</strong> remis par les juges.
                   </p>
                 </div>
@@ -435,7 +458,12 @@ export default function Home() {
       <footer className="footer">
         <div className="container footer-inner">
           <span>Éli Bousquet · 2026</span>
-          <span>Animation · Jeux vidéo · Web</span>
+          <div className="footer-right">
+            <span>Animation · Jeux vidéo · Web</span>
+            <a href="/declaration-ia" className="btn-nav" data-arc-target>
+              Déclaration IA
+            </a>
+          </div>
         </div>
       </footer>
     </>

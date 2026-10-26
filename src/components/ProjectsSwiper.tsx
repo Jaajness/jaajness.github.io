@@ -39,8 +39,17 @@ export default function ProjectsSwiper({
         pagination={{ clickable: true }}
         keyboard={{ enabled: true, onlyInViewport: true }}
         breakpoints={{
-          640: { slidesPerView: 2.15, spaceBetween: 16 },
-          1000: { slidesPerView: 2.6, spaceBetween: 18 },
+          640: { slidesPerView: 1.4, spaceBetween: 16 },
+
+          736: { slidesPerView: 1.8, spaceBetween: 16 },
+
+          896: { slidesPerView: 2.2, spaceBetween: 16 },
+
+          928: { slidesPerView: 2.2, spaceBetween: 18 },
+
+          960: { slidesPerView: 2.4, spaceBetween: 18 },
+
+          1024: { slidesPerView: 2.6, spaceBetween: 18 },
         }}
       >
         {projects.map((project, index) => (
