@@ -63,7 +63,13 @@ function ProjectImage({
       ) : (
         <span>{alt}</span>
       )}
-      {play && <img className="project-play" src="/assets/icon-play-overlay.svg" alt="" />}
+      {play && (
+        <img
+          className="project-play"
+          src="/assets/icon-play-overlay.svg"
+          alt=""
+        />
+      )}
     </div>
   );
 }
