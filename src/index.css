@@ -2497,12 +2497,12 @@ html.menu-open {
   }
 
   .hero {
-    height: 984px;
-    min-height: 984px;
+    height: 100vh;
+    min-height: 100vh;
     padding-top: 64px;
   }
   .hero-wrapper {
-    height: 920px;
+    height: 90vh;
     padding: 60px 0;
     display: flex;
   }
