@@ -22,6 +22,21 @@ export interface Project {
   links: { label: string; url: string }[];
   aiProject: string;
   aiPresentation: string;
+  media?: ProjectMedia;
+  challenges?: Challenge[];
+}
+
+export interface ProjectMedia {
+  hero?: string;
+  context?: string;
+  steps?: string[]; // same order as `process`
+  result?: string;
+  resultIsVideo?: boolean; // shows the play overlay
+}
+
+export interface Challenge {
+  problem: string;
+  solution: string; // supports **bold**
 }
 
 const AI_PRESENTATION_DISCLOSURE =
@@ -87,6 +102,30 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Voir la démo", url: "#" }],
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
   {
     id: 2,
@@ -147,6 +186,30 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Voir le prototype", url: "#" }],
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
   {
     id: 3,
@@ -208,6 +271,30 @@ export const PROJECTS: Project[] = [
     aiProject:
       "Aucune IA générative n’a été utilisée par Éli pour réaliser sa partie de ce projet collectif.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
   {
     id: 4,
@@ -268,6 +355,30 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Voir l'application", url: "#" }],
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
   {
     id: 5,
@@ -328,6 +439,30 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Voir le projet", url: "#" }],
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
   {
     id: 6,
@@ -388,5 +523,29 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Voir la séquence", url: "#" }],
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
+    media: {
+      hero: "/assets/unity-hero-banner.png",
+      context: "/assets/unity-context-bins.png",
+      steps: [
+        "/assets/unity-step1-schedule.png",
+        "/assets/unity-step2-scene-colliders.png",
+        "/assets/unity-step3-animator.png",
+        "/assets/unity-step4-audio.png",
+        "/assets/unity-step5-test-ui.png",
+      ],
+      result: "/assets/unity-result-gameplay.png",
+      resultIsVideo: true,
+    },
+    challenges: [
+      {
+        problem: "La scène manquait d’effets de noirceur",
+        solution: "**recherches** sur le **post-processing**",
+      },
+      {
+        problem: "Les ennemis devaient avoir un comportement réaliste",
+        solution:
+          "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
+      },
+    ],
   },
 ];

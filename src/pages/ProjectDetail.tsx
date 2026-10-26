@@ -4,19 +4,6 @@ import NotFound from "./NotFound";
 import { PROJECTS } from "../data/projects";
 import DynamicPageTitle from "../components/DynamicPageTitle";
 
-const UNITY_ASSETS = {
-  hero: "/assets/unity-hero-banner.png",
-  context: "/assets/unity-context-bins.png",
-  steps: [
-    "/assets/unity-step1-schedule.png",
-    "/assets/unity-step2-scene-colliders.png",
-    "/assets/unity-step3-animator.png",
-    "/assets/unity-step4-audio.png",
-    "/assets/unity-step5-test-ui.png",
-  ],
-  result: "/assets/unity-result-gameplay.png",
-};
-
 function DetailHeading({ children }: { children: React.ReactNode }) {
   return (
     <div className="detail-heading">
@@ -24,6 +11,12 @@ function DetailHeading({ children }: { children: React.ReactNode }) {
       <h2>{children}</h2>
     </div>
   );
+}
+
+function renderBold(text: string) {
+  return text
+    .split("**")
+    .map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : part));
 }
 
 function ProjectImage({
@@ -75,48 +68,6 @@ function ProjectImage({
   );
 }
 
-const UNITY_PROCESS_COPY = [
-  <>
-    Définir le <strong>concept de jeu</strong>, les{" "}
-    <strong>mécaniques principales</strong> et les{" "}
-    <strong>boucles de gameplay</strong> dans un document et/ou avec des notes
-    pour voir l’
-    <strong>aspect global</strong> du jeu et ainsi <strong>planifier</strong>{" "}
-    les objets à aller chercher, les modèles et fichiers audio à intégrer, le
-    code à réaliser, etc.
-  </>,
-  <>
-    <strong>Programmation</strong> des <strong>systèmes de personnage</strong>,
-    de <strong>physique</strong> et de <strong>progression</strong> en{" "}
-    <strong>C#</strong> pour tester et rapidement créer un{" "}
-    <strong>environnement interactif</strong> sans se soucier des textures,
-    objets, environnement, etc. Mise en place de l’architecture de{" "}
-    <strong>code modulaire</strong> et réutilisable.
-  </>,
-  <>
-    <strong>Modélisation et rigging</strong> des <strong>personnages</strong>{" "}
-    dans <strong>Blender</strong>, puis intégration des animations dans Unity
-    via l’<strong>Animator Controller</strong>. <strong>Création</strong> des{" "}
-    <strong>assets visuels</strong> du projet. Le jeu doit avoir son{" "}
-    <strong>aspect “vivant”</strong> pour pouvoir{" "}
-    <strong>intégrer le son</strong> et le reste.
-  </>,
-  <>
-    <strong>Intégration</strong> de la <strong>bande sonore</strong>, des{" "}
-    <strong>effets sonores</strong> et des <strong>effets visuels</strong>,
-    utilisant les principes de son 2D et 3D ainsi que la bonne utilisation de{" "}
-    <strong>loop audio</strong>. Travail sur le <strong>polish global</strong>{" "}
-    pour renforcer le <strong>ressenti de jeu</strong>.
-  </>,
-  <>
-    <strong>Tests fonctionnels</strong> complets,{" "}
-    <strong>correction des bugs</strong>, <strong>optimisation</strong> des
-    performances pour permettre une expérience agréable et intéressante.
-    Production de la <strong>build finale jouable</strong> et{" "}
-    <strong>documentation</strong> du projet.
-  </>,
-];
-
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -126,6 +77,8 @@ export default function ProjectDetail() {
 
   if (!project) return <NotFound />;
 
+  const media = project.media;
+
   const isUnity = project.id === 1;
   const nextProject = PROJECTS[index + 1] ?? null;
   const previousProject = PROJECTS[index - 1] ?? null;
@@ -134,7 +87,7 @@ export default function ProjectDetail() {
     <>
       <main className="project-detail">
         <ProjectImage
-          src={isUnity ? UNITY_ASSETS.hero : undefined}
+          src={media?.hero}
           alt={`Image principale du projet ${project.title}`}
           className="detail-cover"
         />
@@ -205,7 +158,7 @@ export default function ProjectDetail() {
               </p>
             </div>
             <ProjectImage
-              src={isUnity ? UNITY_ASSETS.context : undefined}
+              src={media?.context}
               alt={`Contexte de ${project.title}`}
               className="context-media"
             />
@@ -224,10 +177,10 @@ export default function ProjectDetail() {
                   <div className="step-text">
                     <span className="step-num">{step.step}</span>
                     <h3>{step.title}</h3>
-                    <p>{isUnity ? UNITY_PROCESS_COPY[stepIndex] : step.body}</p>
+                    <p>{renderBold(step.body)}</p>
                   </div>
                   <ProjectImage
-                    src={isUnity ? UNITY_ASSETS.steps[stepIndex] : undefined}
+                    src={media?.steps?.[stepIndex]}
                     alt={step.mediaLabel}
                     className="step-media"
                     zoomTitle={step.title}
@@ -252,35 +205,23 @@ export default function ProjectDetail() {
               </ul>
             </div>
             <ProjectImage
-              src={isUnity ? UNITY_ASSETS.result : undefined}
+              src={media?.result}
               alt={`Résultat final de ${project.title}`}
               className="result-media"
-              play={isUnity}
+              play={media?.resultIsVideo}
             />
-            {isUnity && (
+            {!!project.challenges?.length && (
               <div className="challenges">
                 <DetailHeading>Défis &amp; solutions</DetailHeading>
                 <ul className="detail-outcomes">
-                  <li>
-                    <span className="skill-bullet" />
-                    <span>
-                      La scène manquait d’effets de noirceur →{" "}
-                      <strong>recherches</strong> sur le{" "}
-                      <strong>post-processing</strong>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="skill-bullet" />
-                    <span>
-                      Les ennemis devaient avoir un comportement réaliste →{" "}
-                      <strong>Programmation</strong> d’un{" "}
-                      <strong>système de vision</strong> et réaction selon la{" "}
-                      <strong>distance</strong>, le temps d’entrée dans le{" "}
-                      <strong>champ de vision</strong> et la{" "}
-                      <strong>position</strong> du personnage (debout ou
-                      accroupi)
-                    </span>
-                  </li>
+                  {project.challenges.map((challenge) => (
+                    <li key={challenge.problem}>
+                      <span className="skill-bullet" />
+                      <span>
+                        {challenge.problem} → {renderBold(challenge.solution)}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
