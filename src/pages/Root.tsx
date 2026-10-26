@@ -1,7 +1,9 @@
 import { Outlet, useNavigate, useLocation } from "react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ElectricArcCursor } from "../components/ElectricArcCursor";
+import MenuToggle from "../components/MenuToggle";
 import useMediaQuery from "../components/useMediaQuery";
+import useMobileMenu from "../components/useMobileMenu";
 
 export default function Root() {
   const cursorDot = useRef<HTMLDivElement>(null);
@@ -12,14 +14,15 @@ export default function Root() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { open: menuOpen, toggle: toggleMenu, close: closeMenu, toggleRef } =
+    useMobileMenu();
 
   const isHome = location.pathname === "/";
 
   useEffect(() => {
-    setMenuOpen(false);
+    closeMenu();
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [location.pathname]);
+  }, [location.pathname, closeMenu]);
 
   useEffect(() => {
     if (!hasMouse) return;
@@ -59,6 +62,7 @@ export default function Root() {
   }, [hasMouse]);
 
   const scrollTo = (id: string) => {
+    closeMenu();
     if (!isHome) {
       navigate("/");
       setTimeout(
@@ -87,6 +91,12 @@ export default function Root() {
         </>
       )}
 
+      <div
+        className={`nav-backdrop ${menuOpen ? "is-open" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
       <nav className="nav">
         <div className="container nav-inner">
           <button
@@ -96,7 +106,10 @@ export default function Root() {
           >
             EB
           </button>
-          <div className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}>
+          <div
+            id="primary-navigation"
+            className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}
+          >
             <button
               className="nav-link"
               data-arc-target
@@ -123,19 +136,17 @@ export default function Root() {
               href="/assets/CV_Eli_Bousquet_2026_Portfolio.pdf"
               className="btn-nav"
               data-arc-target
+              onClick={closeMenu}
             >
               CV
             </a>
           </div>
-          <button
-            className="nav-menu-toggle"
-            type="button"
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <img src="/assets/icon-menu.svg" alt="" />
-          </button>
+          <MenuToggle
+            ref={toggleRef}
+            open={menuOpen}
+            onToggle={toggleMenu}
+            controlsId="primary-navigation"
+          />
         </div>
       </nav>
 

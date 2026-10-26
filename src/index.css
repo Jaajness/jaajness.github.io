@@ -235,6 +235,70 @@ strong {
 .nav-menu-toggle {
   display: none;
 }
+.nav-backdrop {
+  display: none;
+}
+html.menu-open {
+  overflow: hidden;
+}
+
+/* Hamburger → ✕ (bars are animated; see MenuToggle.tsx) */
+.menu-bars {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 16px;
+}
+.menu-bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+  transform-origin: center;
+  transition:
+    top 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.3s,
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.2s,
+    box-shadow 0.35s;
+}
+.menu-bars span:nth-child(1) {
+  top: 0;
+}
+.menu-bars span:nth-child(2) {
+  top: 7px;
+  width: 68%;
+}
+.menu-bars span:nth-child(3) {
+  top: 14px;
+}
+.nav-menu-toggle.is-open .menu-bars span {
+  box-shadow: 0 0 8px rgba(164, 0, 0, 0.7);
+}
+.nav-menu-toggle.is-open .menu-bars span:nth-child(1) {
+  top: 7px;
+  transform: rotate(45deg);
+}
+.nav-menu-toggle.is-open .menu-bars span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-menu-toggle.is-open .menu-bars span:nth-child(3) {
+  top: 7px;
+  transform: rotate(-45deg);
+}
+@keyframes nav-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 .hero {
   position: relative;
@@ -2301,13 +2365,42 @@ strong {
   }
   .nav-menu-toggle {
     display: flex;
-    width: 24px;
-    height: 18px;
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background 0.25s,
+      box-shadow 0.25s;
   }
-  .nav-menu-toggle img {
+  .nav-menu-toggle:active {
+    background: rgba(164, 0, 0, 0.14);
+  }
+  .nav-menu-toggle:focus-visible {
+    outline: 1.325px solid var(--primary);
+    outline-offset: 2px;
+  }
+  .nav-menu-toggle.is-open {
+    background: rgba(164, 0, 0, 0.1);
+    box-shadow: 0 0 18px rgba(164, 0, 0, 0.35);
+  }
+  .nav-backdrop {
+    position: fixed;
+    inset: 64px 0 0;
+    z-index: 190;
     display: block;
+    background: rgba(6, 6, 6, 0.62);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .nav-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
   }
   .nav-links {
     position: fixed;
@@ -2322,23 +2415,48 @@ strong {
     background: rgba(13, 13, 13, 0.97);
     border-bottom: 1.325px solid var(--primary);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-12px);
     transition:
       opacity 0.22s,
-      transform 0.22s;
+      transform 0.22s,
+      visibility 0s linear 0.22s;
   }
   .nav-links-open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
+    transition-delay: 0s;
+  }
+  .nav-links-open > * {
+    animation: nav-item-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .nav-links-open > :nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .nav-links-open > :nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .nav-links-open > :nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .nav-links-open > :nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .nav-link {
+    border-bottom: 1.325px solid rgba(164, 0, 0, 0.18);
   }
   .nav-link,
   .btn-nav {
     display: block;
     width: 100%;
-    padding: 8px 0;
+    padding: 12px 0;
     font-size: 12px;
     letter-spacing: 2px;
     text-align: left;
