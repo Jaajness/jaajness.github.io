@@ -243,7 +243,12 @@ export default function ProjectDetail() {
       <footer className="footer">
         <div className="container footer-inner">
           <span>Éli Bousquet · 2026</span>
-          <span>Animation · Jeux vidéo · Web</span>
+          <div className="footer-right">
+            <span>Animation · Jeux vidéo · Web</span>
+            <a href="/declaration-ia" className="btn-nav" data-arc-target>
+              Déclaration IA
+            </a>
+          </div>
         </div>
       </footer>
     </>
