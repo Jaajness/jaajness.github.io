@@ -55,40 +55,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "Conception de systèmes de gameplay, intégration audio et animations 3D dans un jeu vidéo indépendant.",
     overview:
-      "Ce projet explore la création d'une expérience de jeu vidéo indépendant de bout en bout. L'objectif était de concevoir des systèmes de gameplay cohérents, d'intégrer des animations 3D fluides et de produire une ambiance sonore immersive qui renforce l'identité visuelle du projet.",
+      "Conception d’un **jeu 3D éducatif** avec une **thématique écologique** (sauvegarde de l’environnement, recyclage, le compost, espèces menacées). Le joueur doit **se déplacer** en utilisant les touches du clavier pour **collecter des objets** et **éviter des obstacles.** Le but du jeu est de **sensibiliser les joueurs** aux enjeux environnementaux tout en les **divertissant.**",
     process: [
       {
         step: "01",
         title: "Conception & Prototype",
-        body: "Définition du concept de jeu, des mécaniques principales et des boucles de gameplay. Mise en place d'un prototype jouable pour valider les sensations et l'ergonomie.",
+        body: "Définir le **concept de jeu**, les **mécaniques principales** et les **boucles de gameplay** dans un document et/ou avec des notes pour voir **l’aspect global** du jeu et ainsi **planifier** les objets à aller chercher, les modèles et fichiers audio à intégrer, le code à réaliser, etc.",
         mediaLabel: "Capture d'écran · Prototype initial",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Architecture des systèmes",
-        body: "Programmation des systèmes de personnage, de physique et de progression en C#. Mise en place de l'architecture de code modulaire et réutilisable.",
+        body: "**Programmation** des **systèmes de personnage**, de **physique** et de **progression** en **C#** pour tester et rapidement créer un **environnement interactif** sans se soucier des textures, objets, environnement, etc.  Mise en place de l'architecture de **code modulaire** et réutilisable.",
         mediaLabel: "Capture d'écran · Architecture du code",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Animation & Assets 3D",
-        body: "Modélisation et rigging des personnages dans Blender, puis intégration des animations dans Unity via l'Animator Controller. Création des assets visuels du projet.",
+        body: "**Modélisation et rigging** des **personnages** dans **Blender**, puis intégration des animations dans Unity via **l'Animator Controller.** **Création** des **assets visuels** du projet. Le jeu doit avoir son **aspect “vivant”** pour pouvoir **intégrer le son** et le reste.",
         mediaLabel: "Rendu · Personnages et animations",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Intégration audio & VFX",
-        body: "Intégration de la bande sonore, des effets sonores et des effets visuels. Travail sur le polish global pour renforcer le ressenti de jeu.",
+        body: "**Intégration** de la **bande sonore**, des **effets sonores** et des **effets visuels**, utilisant les principes de son 2D et 3D ainsi que la bonne utilisation de **loop audio**. Travail sur le **polish global** pour renforcer le **ressenti de jeu.**",
         mediaLabel: "Capture d'écran · Effets visuels en jeu",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Tests & Livraison",
-        body: "Tests fonctionnels complets, correction des bugs, optimisation des performances. Production de la build finale jouable et documentation du projet.",
+        body: "**Tests fonctionnels** complets, **correction des bugs,** **optimisation** des performances pour permettre une expérience agréable et intéressante. Production de la **build finale jouable** et **documentation** du projet.",
         mediaLabel: "Capture d'écran · Build finale",
         mediaRatio: "16 / 9",
       },
@@ -139,40 +139,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "L'objectif de ce travail est de réaliser un prototype de jeu vidéo simple à l'aide d'Unreal Engine.",
     overview:
-      "Prototype de jeu vidéo simple réalisé avec Unreal Engine. Le projet met l'accent sur la maîtrise des outils de base du logiciel, la création d'un environnement cohérent et l'implémentation de mécaniques de jeu fondamentales via Blueprint.",
+      "**Prototype de jeu vidéo** simple réalisé avec **Unreal Engine**. Le projet met l'accent sur la **maîtrise des outils** de base du logiciel, la **création** d'un **environnement** cohérent et l'implémentation de **mécaniques de jeu** fondamentales via **Blueprint.**",
     process: [
       {
         step: "01",
         title: "Prise en main d'Unreal Engine",
-        body: "Exploration de l'interface et des outils d'Unreal Engine. Configuration du projet, paramétrage des options de rendu et prise en main du système Blueprint.",
+        body: "**Exploration** de l'interface et des outils d'**Unreal Engine.** **Configuration** du projet, paramétrage des **options de rendu** et prise en main du **système Blueprint.**",
         mediaLabel: "Capture d'écran · Interface UE5",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Construction du level",
-        body: "Création de l'environnement de jeu avec les outils de modélisation et les ressources intégrées à Unreal Engine. Mise en place de l'éclairage et de l'ambiance visuelle.",
+        body: "**Création** de l'environnement de jeu avec les **outils de modélisation** et les ressources intégrées à **Unreal Engine**. Mise en place de **l'éclairage** et de **l'ambiance visuelle.**",
         mediaLabel: "Capture d'écran · Level en construction",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Systèmes Blueprint",
-        body: "Implémentation des mécaniques de jeu (mouvement du personnage, caméra, interactions) via le système Blueprint visuel d'Unreal Engine.",
+        body: "**Implémentation** des mécaniques de jeu (mouvement du personnage, caméra, interactions) via le **système Blueprint** visuel d'**Unreal Engine.**",
         mediaLabel: "Capture d'écran · Blueprint",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Ambiance & polish visuel",
-        body: "Peaufinage de l'éclairage, ajout d'effets de post-processing et d'éléments atmosphériques pour renforcer l'identité visuelle du prototype.",
+        body: "**Peaufinage** de **l'éclairage**, ajout d'effets de **post-processing** et d'éléments atmosphériques pour renforcer **l'identité visuelle** du prototype.",
         mediaLabel: "Rendu · Ambiance finale",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Build & Présentation",
-        body: "Compilation du projet en build jouable, documentation des choix techniques et présentation du prototype avec démonstration des mécaniques implémentées.",
+        body: "**Compilation** du projet en **build jouable**, documentation des **choix techniques** et présentation du prototype avec **démonstration** des mécaniques implémentées.",
         mediaLabel: "Capture d'écran · Build finale",
         mediaRatio: "16 / 9",
       },
@@ -199,7 +199,7 @@ export const PROJECTS: Project[] = [
       result: "/assets/unity-result-gameplay.png",
       resultIsVideo: true,
     },
-    challenges: [
+    /* challenges: [
       {
         problem: "La scène manquait d’effets de noirceur",
         solution: "**recherches** sur le **post-processing**",
@@ -209,7 +209,7 @@ export const PROJECTS: Project[] = [
         solution:
           "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
       },
-    ],
+    ], */
   },
   {
     id: 3,
@@ -223,40 +223,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "L'objectif de ce travail est de réaliser un prototype de jeu vidéo complexe à l'aide d'Unreal Engine, en équipe.",
     overview:
-      "Développement collaboratif d'un prototype de jeu vidéo complexe avec Unreal Engine. Ce projet met l'accent sur la coordination d'équipe, la gestion de version et la répartition des responsabilités pour produire un résultat plus ambitieux qu'un projet individuel.",
+      "**Développement collaboratif** d'un prototype de jeu vidéo complexe avec **Unreal Engine.** Ce projet met l'accent sur la **coordination d'équipe,** la gestion de version et la répartition des **responsabilités** pour produire un résultat plus **ambitieux** qu'un projet individuel.",
     process: [
       {
         step: "01",
         title: "Organisation de l'équipe",
-        body: "Définition des rôles et responsabilités de chaque membre. Mise en place des outils de gestion de version et des conventions de travail collaboratif.",
+        body: "**Définition** des rôles et responsabilités de chaque membre. **Mise en place** des outils de **gestion de version** et des conventions de **travail collaboratif.**",
         mediaLabel: "Capture d'écran · Organisation du projet",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Conception collaborative",
-        body: "Sessions de conception en équipe pour définir les mécaniques, l'univers visuel et l'architecture technique du prototype. Création du document de conception partagé.",
+        body: "**Sessions de conception** en équipe pour définir les **mécaniques**, l'univers visuel et l'architecture technique du **prototype.** **Création** du document de **conception partagé.**",
         mediaLabel: "Capture d'écran · Documents de conception",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Développement parallèle",
-        body: "Développement simultané des différents systèmes par les membres de l'équipe. Intégration régulière pour éviter les conflits et assurer la cohérence du projet.",
+        body: "**Développement** simultané des différents **systèmes** par les membres de l'équipe. **Intégration** régulière pour éviter les **conflits** et assurer la **cohérence** du projet.",
         mediaLabel: "Capture d'écran · Prototype en développement",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Intégration & Débogage",
-        body: "Phase d'intégration des modules développés séparément. Résolution des conflits techniques, débogage collaboratif et ajustements des interfaces entre systèmes.",
+        body: "**Phase d'intégration** des modules développés séparément. **Résolution** des conflits techniques, **débogage collaboratif** et ajustements des **interfaces** entre systèmes.",
         mediaLabel: "Capture d'écran · Prototype intégré",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Polish & Livraison finale",
-        body: "Finition collective du prototype, tests croisés par les membres de l'équipe et correction des derniers bugs. Présentation du résultat final à l'ensemble de la classe.",
+        body: "**Finition collective** du prototype, tests croisés par les membres de l'équipe et **correction** des derniers bugs. **Présentation** du résultat final à l'ensemble de la classe.",
         mediaLabel: "Capture d'écran · Rendu final en équipe",
         mediaRatio: "16 / 9",
       },
@@ -284,7 +284,7 @@ export const PROJECTS: Project[] = [
       result: "/assets/unity-result-gameplay.png",
       resultIsVideo: true,
     },
-    challenges: [
+    /* challenges: [
       {
         problem: "La scène manquait d’effets de noirceur",
         solution: "**recherches** sur le **post-processing**",
@@ -294,7 +294,7 @@ export const PROJECTS: Project[] = [
         solution:
           "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
       },
-    ],
+    ], */
   },
   {
     id: 4,
@@ -308,40 +308,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "Application web interactive à interface dynamique, intégrations API et expérience utilisateur poussée.",
     overview:
-      "Développement d'une application web complète avec une interface réactive. L'accent est mis sur l'expérience utilisateur, les performances et l'intégration propre des contenus.",
+      "**Développement** d'une application **web** complète avec une interface **réactive**. L'accent est mis sur **l'expérience utilisateur,** les performances et **l'intégration** propre des contenus.",
     process: [
       {
         step: "01",
         title: "Recherche & Conception UX",
-        body: "Analyse des besoins, création des wireframes et définition de l'architecture de l'application. Conception des flux utilisateurs et des interactions principales.",
+        body: "**Analyse** des besoins, **création** des wireframes et **définition** de l'architecture de l'application. **Conception** des flux utilisateurs et des **interactions** principales.",
         mediaLabel: "Capture d'écran · Wireframes & maquettes",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Architecture des composants",
-        body: "Définition de l'architecture des composants et des flux de données. Mise en place de la structure du projet et des conventions de code.",
+        body: "**Définition** de l'architecture des **composants** et des flux de données. Mise en place de la **structure** du projet et des conventions de **code.**",
         mediaLabel: "Capture d'écran · Architecture du projet",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Développement des fonctionnalités",
-        body: "Implémentation des fonctionnalités principales, intégration des APIs et mise en place de la gestion d'état. Développement itératif avec tests réguliers.",
+        body: "**Implémentation** des fonctionnalités principales, **intégration** des APIs et mise en place de la **gestion d'état.** **Développement** itératif avec tests réguliers.",
         mediaLabel: "Capture d'écran · Interface en développement",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Optimisation & Accessibilité",
-        body: "Optimisation des performances (temps de chargement, rendu), amélioration de l'accessibilité et de la compatibilité cross-navigateurs. Tests fonctionnels approfondis.",
+        body: "**Optimisation** des performances (temps de chargement, rendu), **amélioration** de l'accessibilité et de la **compatibilité** cross-navigateurs. **Tests** fonctionnels approfondis.",
         mediaLabel: "Capture d'écran · Interface optimisée",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Déploiement & Documentation",
-        body: "Déploiement de l'application en production, rédaction de la documentation technique et utilisateur. Monitoring et corrections post-lancement.",
+        body: "**Déploiement** de l'application en production, rédaction de la **documentation** technique et utilisateur. Monitoring et **corrections** post-lancement.",
         mediaLabel: "Capture d'écran · Application en production",
         mediaRatio: "16 / 9",
       },
@@ -368,7 +368,7 @@ export const PROJECTS: Project[] = [
       result: "/assets/unity-result-gameplay.png",
       resultIsVideo: true,
     },
-    challenges: [
+    /* challenges: [
       {
         problem: "La scène manquait d’effets de noirceur",
         solution: "**recherches** sur le **post-processing**",
@@ -378,7 +378,7 @@ export const PROJECTS: Project[] = [
         solution:
           "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
       },
-    ],
+    ], */
   },
   {
     id: 5,
@@ -392,40 +392,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "Site web conçu et développé en équipe en 36 heures lors du Webjam 2026.",
     overview:
-      "Q-tipousse a été réalisé en 36 heures par l’équipe Erreur Fatale dans le cadre du Webjam 2026. Le projet s’est démarqué par son excellence technique, créative et collaborative, et a reçu le Grand Prix du meilleur site remis par les juges.",
+      "**Q-tipousse** a été réalisé en 36 heures par l’équipe **Erreur Fatale** dans le cadre du Webjam 2026. Le projet s’est démarqué par son **excellence** technique, créative et collaborative, et a reçu le **Grand Prix** du **meilleur site** remis par les juges.",
     process: [
       {
         step: "01",
         title: "Idéation & Répartition",
-        body: "Définition rapide du concept, de la direction visuelle et des responsabilités de chaque membre afin de lancer la production dans un délai très court.",
+        body: "**Définition** rapide du concept, de la direction visuelle et des **responsabilités** de chaque membre afin de lancer la **production** dans un délai très court.",
         mediaLabel: "Document · Concept du projet",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Conception de l’interface",
-        body: "Création de la structure des pages, des composants visuels et des parcours principaux en gardant une identité cohérente.",
+        body: "**Création** de la structure des pages, des **composants** visuels et des parcours principaux en gardant une **identité** cohérente.",
         mediaLabel: "Capture d’écran · Maquettes",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Développement collaboratif",
-        body: "Intégration des contenus et développement simultané des fonctionnalités avec des validations régulières entre les membres de l’équipe.",
+        body: "**Intégration** des contenus et développement simultané des **fonctionnalités** avec des **validations** régulières entre les membres de l’équipe.",
         mediaLabel: "Capture d’écran · Développement",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Tests & Ajustements",
-        body: "Tests fonctionnels, corrections des problèmes d’affichage et optimisation de l’expérience avant la remise finale.",
+        body: "**Tests** fonctionnels, **corrections** des problèmes d’affichage et **optimisation** de l’expérience avant la **remise finale.**",
         mediaLabel: "Capture d’écran · Tests",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Présentation finale",
-        body: "Finalisation et présentation du site aux juges du Webjam après 36 heures de conception et de développement.",
+        body: "**Finalisation** et **présentation** du site aux juges du Webjam après 36 heures de **conception** et de **développement.**",
         mediaLabel: "Image · Présentation du projet",
         mediaRatio: "16 / 9",
       },
@@ -452,7 +452,7 @@ export const PROJECTS: Project[] = [
       result: "/assets/unity-result-gameplay.png",
       resultIsVideo: true,
     },
-    challenges: [
+    /* challenges: [
       {
         problem: "La scène manquait d’effets de noirceur",
         solution: "**recherches** sur le **post-processing**",
@@ -462,7 +462,7 @@ export const PROJECTS: Project[] = [
         solution:
           "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
       },
-    ],
+    ], */
   },
   {
     id: 6,
@@ -476,40 +476,40 @@ export const PROJECTS: Project[] = [
     tagline:
       "Séquence animée réalisée de A à Z dans Blender — modélisation, rigging, rendu final.",
     overview:
-      "Production d'une séquence d'animation 3D complète intitulée « Route vers l'infini ». Le projet couvre l'ensemble du pipeline de production, de la conception initiale jusqu'au rendu et au montage final.",
+      "**Production** d'une séquence d'**animation 3D** complète intitulée « **Route vers l'infini** ». Le projet couvre l'ensemble du **pipeline de production**, de la conception initiale jusqu'au rendu et au **montage final.**",
     process: [
       {
         step: "01",
         title: "Storyboard & Animatique",
-        body: "Développement du concept visuel et narratif de la séquence. Création du storyboard image par image et production de l'animatique pour valider le rythme et la composition.",
+        body: "**Développement** du concept visuel et narratif de la **séquence.** Création du **storyboard** image par image et production de l'**animatique** pour valider le rythme et la **composition.**",
         mediaLabel: "Image · Storyboard de la séquence",
         mediaRatio: "16 / 9",
       },
       {
         step: "02",
         title: "Modélisation 3D",
-        body: "Modélisation de l'ensemble des éléments 3D de la scène dans Blender. Création des décors, véhicules et objets avec un niveau de détail adapté aux besoins de l'animation.",
+        body: "**Modélisation** de l'ensemble des **éléments 3D** de la scène dans **Blender.** **Création** des décors, personnages et objets avec un niveau de **détail** adapté aux besoins de **l'animation.**",
         mediaLabel: "Rendu · Modèles 3D finalisés",
         mediaRatio: "16 / 9",
       },
       {
         step: "03",
         title: "Rigging & Animation",
-        body: "Mise en place des rigs d'animation pour les éléments mobiles de la scène. Animation image par image dans l'éditeur de courbes de Blender pour des mouvements fluides et expressifs.",
+        body: "Mise en place des **rigs d'animation** pour les **éléments mobiles** de la scène. **Animation** image par image dans l'éditeur de courbes de **Blender** pour des mouvements **fluides** et **expressifs.**",
         mediaLabel: "Capture d'écran · Rig et courbes d'animation",
         mediaRatio: "16 / 9",
       },
       {
         step: "04",
         title: "Éclairage & Rendu",
-        body: "Configuration de l'éclairage de la scène avec Cycles pour obtenir une ambiance cohérente avec le concept. Paramétrage du rendu et lancement des passes de rendu.",
+        body: "**Configuration** de l'éclairage de la scène avec **Cycles** pour obtenir une ambiance cohérente avec le **concept.** **Paramétrage** du rendu et lancement des passes de **rendu.**",
         mediaLabel: "Rendu · Éclairage final de la scène",
         mediaRatio: "16 / 9",
       },
       {
         step: "05",
         title: "Compositing & Montage final",
-        body: "Assemblage des passes de rendu dans le compositeur Blender puis montage final dans Adobe Premiere Pro. Ajout de la musique, des effets sonores et étalonnage colorimétrique.",
+        body: "**Assemblage** des passes de rendu dans le compositeur **Blender** puis montage final dans **Adobe Premiere Pro.** Ajout de la **musique,** des effets sonores et **étalonnage colorimétrique.**",
         mediaLabel: "Rendu · Image finale de la séquence",
         mediaRatio: "16 / 9",
       },
@@ -536,7 +536,7 @@ export const PROJECTS: Project[] = [
       result: "/assets/unity-result-gameplay.png",
       resultIsVideo: true,
     },
-    challenges: [
+    /* challenges: [
       {
         problem: "La scène manquait d’effets de noirceur",
         solution: "**recherches** sur le **post-processing**",
@@ -546,6 +546,6 @@ export const PROJECTS: Project[] = [
         solution:
           "**Programmation** d’un **système de vision** et réaction selon la **distance**, le temps d’entrée dans le **champ de vision** et la **position** du personnage (debout ou accroupi)",
       },
-    ],
+    ], */
   },
 ];

@@ -139,23 +139,7 @@ export default function ProjectDetail() {
           <div className="container detail-context">
             <div>
               <DetailHeading>Contexte</DetailHeading>
-              <p className="detail-lead">
-                {isUnity ? (
-                  <>
-                    Conception d’un <strong>jeu 3D éducatif</strong> avec une{" "}
-                    <strong>thématique écologique</strong> (sauvegarde de
-                    l’environnement, recyclage, le compost, espèces menacées).
-                    Le joueur doit <strong>se déplacer</strong> en utilisant les
-                    touches du clavier pour{" "}
-                    <strong>collecter des objets</strong> et{" "}
-                    <strong>éviter des obstacles</strong>. Le but du jeu est de{" "}
-                    <strong>sensibiliser les joueurs</strong> aux enjeux
-                    environnementaux tout en les <strong>divertissant</strong>.
-                  </>
-                ) : (
-                  project.overview
-                )}
-              </p>
+              <p className="detail-lead">{renderBold(project.overview)}</p>
             </div>
             <ProjectImage
               src={media?.context}
