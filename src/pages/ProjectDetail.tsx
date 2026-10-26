@@ -35,11 +35,15 @@ function ProjectImage({
 }) {
   const sources = src ? (Array.isArray(src) ? src : [src]) : [];
 
-  if (zoomTitle && sources.length > 0) {
+  // Opens in a modal when asked to (zoomTitle) or as soon as there are
+  // several images to browse. A "video" slot (play overlay) stays a plain frame.
+  const isGallery = sources.length > 1 && !play;
+
+  if (sources.length > 0 && (zoomTitle || isGallery)) {
     return (
       <ZoomMedia
         className={className}
-        title={zoomTitle}
+        title={zoomTitle ?? alt}
         images={sources.map((source, index) => ({
           src: source,
           alt: index === 0 ? alt : `${alt} (${index + 1}/${sources.length})`,
@@ -51,9 +55,7 @@ function ProjectImage({
   return (
     <div className={`project-media ${className}`} data-arc-target>
       {sources.length > 0 ? (
-        sources.map((source, index) => (
-          <img key={source} src={source} alt={index === 0 ? alt : ""} />
-        ))
+        <img src={sources[0]} alt={alt} />
       ) : (
         <span>{alt}</span>
       )}

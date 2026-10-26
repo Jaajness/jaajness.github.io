@@ -20,18 +20,28 @@ export default function ZoomMedia({ images, className = "", title }: ZoomMediaPr
 
   if (images.length === 0) return null;
   const label = title ?? images[0].alt;
+  const first = images[0];
+  const extra = images.length - 1;
 
   return (
     <>
       <div className={`project-media is-zoomable ${className}`} data-arc-target>
-        {images.map((img, i) => (
-          <img key={img.src} src={img.src} alt={i === 0 ? img.alt : ""} />
-        ))}
+        {/* Only the first image is shown on the card; the others are browsed in the modal */}
+        <img src={first.src} alt={first.alt} />
+        {extra > 0 && (
+          <i className="zoom-count" aria-hidden="true">
+            {images.length} images
+          </i>
+        )}
         <button
           type="button"
           className="zoom-trigger"
           aria-haspopup="dialog"
-          aria-label={`Agrandir l’image : ${label}`}
+          aria-label={
+            extra > 0
+              ? `Voir les ${images.length} images : ${label}`
+              : `Agrandir l’image : ${label}`
+          }
           onClick={() => setOpen(true)}
         />
         <i className="zoom-hint" aria-hidden="true">
