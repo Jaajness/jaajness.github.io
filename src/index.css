@@ -2124,17 +2124,21 @@ html.menu-open {
 /* A card that is always in its "hovered" state (no hover on touch screens) */
 .project-card.is-revealed {
   height: 100%;
-  min-height: 320px;
+  min-height: 450px;
   display: block;
   box-shadow:
     0 0 28px rgba(164, 0, 0, 0.3),
     inset 0 0 24px rgba(164, 0, 0, 0.08);
 }
 .project-card.is-revealed > img:first-child {
-  filter: blur(8px);
-  transform: scale(1.03);
+  z-index: 2;
 
-  opacity: 0.2;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+
+  height: auto;
+
+  top: 125px;
 }
 .project-card.is-revealed .project-card-shade {
   background-position: center -500px;
@@ -2160,7 +2164,7 @@ html.menu-open {
   margin-bottom: 8px;
 }
 .project-card.is-revealed .project-card-detail-title {
-  margin-bottom: 12px;
+  margin-bottom: 250px;
 }
 .project-card.is-revealed .project-card-description {
   flex: 0 0 auto;

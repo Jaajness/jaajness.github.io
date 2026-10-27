@@ -366,18 +366,15 @@ export default function Home() {
                   <span className="step-num">02</span>
                   <h3>Webjam édition 2026</h3>
                   <p>
-                    <strong>Erreur Fatale</strong> » a <strong>créé</strong> un
-                    site web en 36h, <strong>Q-tipousse</strong>, et a été{" "}
-                    <strong>couronnée</strong> pour le projet s’étant le plus{" "}
-                    <strong>démarqué</strong> en{" "}
-                    <strong>excellence technique</strong>,{" "}
-                    <strong>créative</strong> et <strong>collaborative</strong>.
-                    Composée de <strong>Yoan Robitaille</strong>,{" "}
-                    <strong>Éli Bousquet</strong> (moi),{" "}
-                    <strong>Miro Leblanc</strong> et{" "}
-                    <strong>Nathan Fortier</strong>, notre équipe a su présenter
-                    un <strong>projet remarquable</strong> afin de repartir avec
-                    le <strong>Grand Prix</strong> du{" "}
+                    Lors de l’édition 2026, notre équipe «{" "}
+                    <strong>Erreur Fatale</strong> » a créé un site web en 36h,{" "}
+                    <strong>Q-tipousse</strong>, et a été couronnée pour le
+                    projet s’étant le plus démarqué en{" "}
+                    <strong>excellence</strong> technique, créative et
+                    collaborative. Composée de Yoan Robitaille, Miro Leblanc,
+                    Nathan Fortier et <strong>moi-même</strong>, notre équipe a
+                    su présenter un projet remarquable afin de repartir avec le
+                    <strong>Grand Prix</strong> du{" "}
                     <strong>meilleur site</strong> remis par les juges.
                   </p>
                 </div>
