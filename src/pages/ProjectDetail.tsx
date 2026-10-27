@@ -3,6 +3,8 @@ import ZoomMedia from "../components/ZoomMedia";
 import NotFound from "./NotFound";
 import { PROJECTS } from "../data/projects";
 import DynamicPageTitle from "../components/DynamicPageTitle";
+import SiteShowcase from "../components/SiteShowcase";
+import Youtube from "../components/Youtube";
 
 function DetailHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +14,10 @@ function DetailHeading({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+/** First image of a slot that can hold one image or several. */
+const firstImage = (src?: string | string[]) =>
+  Array.isArray(src) ? src[0] : src;
 
 function renderBold(text: string) {
   return text
@@ -190,12 +196,28 @@ export default function ProjectDetail() {
                 ))}
               </ul>
             </div>
-            <ProjectImage
-              src={media?.result}
-              alt={`Résultat final de ${project.title}`}
-              className="result-media"
-              play={media?.resultIsVideo}
-            />
+            {media?.video ? (
+              <Youtube
+                className="result-video"
+                videoId={media.video.id}
+                start={media.video.start}
+                poster={media.video.poster ?? firstImage(media.result)}
+                title={`Vidéo du projet ${project.title}`}
+              />
+            ) : media?.site ? (
+              <SiteShowcase
+                image={firstImage(media.result)}
+                url={media.site.url}
+                label={media.site.label}
+                title={project.title}
+              />
+            ) : (
+              <ProjectImage
+                src={media?.result}
+                alt={`Résultat final de ${project.title}`}
+                className="result-media"
+              />
+            )}
             {!!project.challenges?.length && (
               <div className="challenges">
                 <DetailHeading>Défis &amp; solutions</DetailHeading>

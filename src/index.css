@@ -3043,3 +3043,107 @@ html.menu-open {
     opacity: 0.9;
   }
 }
+
+/* ───────────────────────── Result: video + website ───────────────────────── */
+.result-video {
+  margin-top: 24px;
+}
+
+.site-showcase {
+  width: 100%;
+  margin-top: 24px;
+}
+.site-showcase .site-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.site-frame img {
+  object-position: top center;
+  transition:
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.4s ease-out;
+}
+a.site-frame:hover img,
+a.site-frame:focus-visible img {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+.site-open {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 12px;
+  padding: 3px 10px;
+  border: 1.325px solid var(--primary);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Poppins:SemiBold", Poppins, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 2px;
+  line-height: 16px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+a.site-frame:hover .site-open,
+a.site-frame:focus-visible .site-open {
+  opacity: 1;
+  transform: none;
+  box-shadow: 0 0 14px rgba(164, 0, 0, 0.4);
+}
+.site-link-row {
+  margin-top: 16px;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1.325px solid var(--primary);
+}
+.site-link-host {
+  min-width: 0;
+  overflow: hidden;
+  color: rgba(135, 135, 135, 0.7);
+  font-family: "Poppins:Bold", Poppins, sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 3.5px;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.site-link {
+  flex: 0 0 auto;
+  color: var(--primary);
+  font-family: "Poppins:SemiBold", Poppins, sans-serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(164, 0, 0, 0.65);
+  text-transform: uppercase;
+  transform-origin: right center;
+  transition:
+    transform 0.4s ease-out,
+    text-shadow 0.4s ease-out;
+}
+.site-link:hover,
+.site-link:focus-visible,
+.site-frame:hover ~ .site-link-row .site-link {
+  outline: 0;
+  transform: scale(1.08);
+  text-shadow: 0 0 16px rgba(164, 0, 0, 0.95);
+}
+@media (hover: none) {
+  .site-open {
+    opacity: 1;
+    transform: none;
+  }
+}

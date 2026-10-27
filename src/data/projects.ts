@@ -29,12 +29,26 @@ export interface Project {
 /** One image, or several (several = the visitor can browse them in a modal). */
 export type MediaSource = string | string[];
 
+/** YouTube video, played by the <Youtube> component in the "Résultats" section. */
+export interface ProjectVideo {
+  id: string; // e.g. "CBYzSp6-LXQ" (the part after ?v= in the URL). "" = not added yet
+  start?: number; // start time in seconds
+  poster?: string; // cover image; defaults to the first `result` image
+}
+
+/** Website: screenshot (`result`) + link that opens the site in a new tab. */
+export interface ProjectSite {
+  url: string; // "" = no link yet (only the screenshot is shown)
+  label?: string; // text of the link, default "Voir le site"
+}
+
 export interface ProjectMedia {
   hero?: string; // wide banner: a single image
   context?: MediaSource;
   steps?: MediaSource[]; // same order as `process`
-  result?: MediaSource;
-  resultIsVideo?: boolean; // shows the play overlay (uses the first image only)
+  result?: MediaSource; // final image: poster of the video / screenshot of the site
+  video?: ProjectVideo; // set this for projects that have a video…
+  site?: ProjectSite; // …or this for websites (not both)
 }
 
 export interface Challenge {
@@ -115,8 +129,8 @@ export const PROJECTS: Project[] = [
         "/assets/unity-step4-audio.png",
         "/assets/unity-step5-test-ui.png",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover-unity-iceberg.png",
+      video: { id: "SJY6i5Td2aI" }, // TODO: ID de la vidéo YouTube
     },
     challenges: [
       {
@@ -203,8 +217,8 @@ export const PROJECTS: Project[] = [
         "/assets/unreal-step4-ambiance.jpg",
         "/assets/unreal-step5-presentation.jpg",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover-unreal-lappel.png",
+      video: { id: "zDqxTQ8GsR4" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [
       {
@@ -288,8 +302,8 @@ export const PROJECTS: Project[] = [
         "/assets/unreal-equipe-step4-integration.jpg",
         "/assets/unreal-equipe-step5-presentation.jpg",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover-unreal-equipe.png",
+      video: { id: "i-tRi4J9DIk" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [
       {
@@ -376,8 +390,8 @@ export const PROJECTS: Project[] = [
         ],
         "/assets/web-step5-documentation.jpg",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover2-project-x.png",
+      site: { url: "https://ehebert.dectim.ca/projectx/" }, // TODO: adresse du site (https://...)
     },
     /* challenges: [
       {
@@ -464,8 +478,8 @@ export const PROJECTS: Project[] = [
         ],
         "/assets/webjam-step5-presentation.jpg",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover2-q-tipousse.png",
+      site: { url: "https://ebousquet.dectim.ca/webjam/" }, // TODO: adresse du site (https://...)
     },
     /* challenges: [
       {
@@ -548,8 +562,8 @@ export const PROJECTS: Project[] = [
         "/assets/3d-step4-eclairage.jpg",
         "/assets/3d-step5-final.jpg",
       ],
-      result: "/assets/unity-result-gameplay.png",
-      resultIsVideo: true,
+      result: "/assets/cover-route-infini-3d.png",
+      video: { id: "wyxnPakfAPs" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [
       {
