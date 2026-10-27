@@ -7,7 +7,7 @@ import ZoomMedia from "../components/ZoomMedia";
 import { PROJECTS } from "../data/projects";
 import DynamicPageTitle from "../components/DynamicPageTitle";
 
-const PRESENTATION_VIDEO_ID = "CBYzSp6-LXQ";
+const PRESENTATION_VIDEO_ID = "Vy3ycDYDWJo";
 
 const SKILLS = [
   "Animation d’environnements 3D",
