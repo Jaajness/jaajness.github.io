@@ -63,7 +63,7 @@ export default function ProjectCard({
       </span>
       {awarded && (
         <span className="project-award" aria-hidden="true">
-          <img src="/assets/8ae61.svg" alt="" />
+          <img src="/assets/icon-award-badge.svg" alt="" />
         </span>
       )}
     </button>
