@@ -447,6 +447,7 @@ export default function Home() {
             <a
               href="https://www.linkedin.com/in/%C3%A9li-bousquet-0aa1063b8/"
               className="contact-link"
+              target="_blank"
               data-arc-target
             >
               Linkedin
