@@ -373,8 +373,7 @@ export default function Home() {
                     <strong>excellence</strong> technique, créative et
                     collaborative. Composée de Yoan Robitaille, Miro Leblanc,
                     Nathan Fortier et <strong>moi-même</strong>, notre équipe a
-                    su présenter un projet remarquable afin de repartir avec le
-                    <strong>Grand Prix</strong> du{" "}
+                    su présenter un projet remarquable afin de repartir avec le <strong>Grand Prix</strong> du{" "}
                     <strong>meilleur site</strong> remis par les juges.
                   </p>
                 </div>
