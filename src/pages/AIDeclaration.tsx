@@ -127,7 +127,7 @@ export default function AIDeclaration() {
 
   return (
     <>
-      <main className="project-detail ai-page">
+      <main id="contenu" tabIndex={-1} className="project-detail ai-page">
         <section className="detail-intro ai-hero">
           <div className="container">
             <div className="detail-meta">

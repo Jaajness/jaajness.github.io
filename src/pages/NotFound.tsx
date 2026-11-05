@@ -7,7 +7,7 @@ export default function NotFound() {
   DynamicPageTitle("Page introuvable");
 
   return (
-    <main className="not-found">
+    <main id="contenu" tabIndex={-1} className="not-found">
       <div className="container not-found-inner">
         <span className="not-found-tag">Erreur · 404</span>
         <h1>

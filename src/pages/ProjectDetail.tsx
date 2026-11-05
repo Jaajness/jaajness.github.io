@@ -93,7 +93,7 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <main className="project-detail">
+      <main id="contenu" tabIndex={-1} className="project-detail">
         <ProjectImage
           src={media?.hero}
           alt={`Image principale du projet ${project.title}`}

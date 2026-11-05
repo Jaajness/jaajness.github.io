@@ -144,6 +144,44 @@ strong {
   margin: 0 auto;
   padding-inline: 24px;
 }
+
+.skip-link {
+  position: fixed;
+  top: 72px; /* nav is 64px tall + 8px gap */
+  left: 16px;
+  z-index: 300; /* above .nav (200) */
+  padding: 8px 18px;
+  color: #fff;
+  background: var(--primary);
+  border: 1.325px solid var(--primary);
+  border-radius: 18px;
+  font-family: "Poppins:SemiBold", Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /* hidden state: pushed up past the top of the viewport */
+  transform: translateY(calc(-100% - 80px));
+  transition: transform 0.25s;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* the target gets focus programmatically, no ring needed */
+#contenu:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
 .portfolio-root {
   min-height: 100vh;
   background: var(--bg);

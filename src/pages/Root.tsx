@@ -79,8 +79,16 @@ export default function Root() {
     }
   };
 
+  const skipToContent = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault(); // keeps "#contenu" out of the URL
+    document.getElementById("contenu")?.focus();
+  };
+
   return (
     <div className="portfolio-root">
+      <a href="#contenu" className="skip-link" onClick={skipToContent}>
+        Accéder au contenu
+      </a>
       {hasMouse && (
         <>
           <ElectricArcCursor

@@ -132,40 +132,136 @@ export default function Home() {
 
   return (
     <>
-      <section id="hub" className="hero">
-        <div className="hero-bg" />
-        <div className="hero-scan" />
-        <div className="hero-ring" />
-        <div className="hero-art" aria-hidden="true">
-          <img src="/assets/hero-art-character.webp" alt="" />
-        </div>
-        <span className="hero-sidetag">Éli Bousquet — Portfolio 2026</span>
-        <div className="hero-wrapper">
-          <div className="container hero-inner">
-            <div className="hero-content">
-              <div className="hero-intro">
-                <span className="hero-eyebrow">
-                  <span className="pulse-dot" />
-                  Portfolio
-                </span>
-                <strong>Développeur &amp; Animateur</strong>
+      <main id="contenu" tabIndex={-1}>
+        <section id="hub" className="hero">
+          <div className="hero-bg" />
+          <div className="hero-scan" />
+          <div className="hero-ring" />
+          <div className="hero-art" aria-hidden="true">
+            <img src="/assets/hero-art-character.webp" alt="" />
+          </div>
+          <span className="hero-sidetag">Éli Bousquet — Portfolio 2026</span>
+          <div className="hero-wrapper">
+            <div className="container hero-inner">
+              <div className="hero-content">
+                <div className="hero-intro">
+                  <span className="hero-eyebrow">
+                    <span className="pulse-dot" />
+                    Portfolio
+                  </span>
+                  <strong>Développeur &amp; Animateur</strong>
+                </div>
+                <h1 className="hero-name">
+                  Éli
+                  <br />
+                  Bousquet
+                </h1>
+                <p className="hero-hook hero-hook-desktop">
+                  Une personne <strong>créative</strong> qui cherche à utiliser
+                  ses <strong>compétences</strong> et son{" "}
+                  <strong>énergie</strong> pour aider, ajoutant une touche
+                  unique à toute <strong>collaboration</strong>.
+                </p>
+                <p className="hero-hook hero-hook-mobile">
+                  Une personne énergique cherchant à offrir cette même énergie
+                  dans les projets abordés
+                </p>
+                <div className="hero-actions">
+                  <button
+                    className="btn-primary"
+                    data-arc-target
+                    onClick={() => scrollTo("projets")}
+                  >
+                    Voir les projets
+                  </button>
+                  <button
+                    className="btn-secondary"
+                    data-arc-target
+                    onClick={() => scrollTo("a-propos")}
+                  >
+                    À propos
+                  </button>
+                </div>
               </div>
-              <h1 className="hero-name">
-                Éli
-                <br />
-                Bousquet
-              </h1>
-              <p className="hero-hook hero-hook-desktop">
-                Une personne <strong>créative</strong> qui cherche à utiliser
-                ses <strong>compétences</strong> et son <strong>énergie</strong>{" "}
-                pour aider, ajoutant une touche unique à toute{" "}
-                <strong>collaboration</strong>.
-              </p>
-              <p className="hero-hook hero-hook-mobile">
-                Une personne énergique cherchant à offrir cette même énergie
-                dans les projets abordés
-              </p>
-              <div className="hero-actions">
+
+              <nav className="hub-nav" aria-label="Liens professionnels">
+                {HUB_LINKS.map((item) => {
+                  const content = (
+                    <>
+                      <span className="hub-card-label">{item.label}</span>
+                      <span className="hub-card-desc">{item.desc}</span>
+                      <span className="hub-card-arrow">→</span>
+                    </>
+                  );
+                  if (item.anchor) {
+                    const id = item.anchor;
+                    return (
+                      <a
+                        key={item.label}
+                        className="hub-card"
+                        href={`#${id}`}
+                        data-arc-target
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToId(id);
+                        }}
+                      >
+                        {content}
+                      </a>
+                    );
+                  }
+                  return item.to ? (
+                    <Link
+                      key={item.label}
+                      className="hub-card"
+                      to={item.to}
+                      data-arc-target
+                    >
+                      {content}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.label}
+                      className="hub-card"
+                      href={item.href}
+                      data-arc-target
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {content}
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+          </div>
+        </section>
+
+        <section id="a-propos" className="section about-section">
+          <div className="container">
+            <SectionHeading number="01">À propos</SectionHeading>
+            <figure className="about-portrait about-portrait-mobile">
+              <div className="about-portrait-frame">
+                <img
+                  src="/assets/portrait-eli.webp"
+                  alt="Portrait d’Éli Bousquet"
+                />
+              </div>
+              <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
+            </figure>
+            <div className="about-grid">
+              <div className="about-column">
+                <p className="about-value-prop">
+                  Ma présence apporte dans les projets une{" "}
+                  <strong>grande force</strong> en{" "}
+                  <strong>programmation</strong> et en{" "}
+                  <strong>animation</strong>. Je contribue grandement dans les
+                  équipes de <strong>jeux-vidéo</strong>, de{" "}
+                  <strong>web</strong> et d’<strong>animation</strong>, grâce à
+                  mes compétences en <strong>codage</strong>, mon sens de la{" "}
+                  <strong>résolution de problèmes</strong> et ma{" "}
+                  <strong>créativité</strong>.
+                </p>
                 <button
                   className="btn-primary"
                   data-arc-target
@@ -173,308 +269,217 @@ export default function Home() {
                 >
                   Voir les projets
                 </button>
-                <button
-                  className="btn-secondary"
-                  data-arc-target
-                  onClick={() => scrollTo("a-propos")}
-                >
-                  À propos
-                </button>
+                <div className="about-block">
+                  <h3 className="about-block-title">Compétences techniques</h3>
+                  <ul className="skill-list">
+                    {SKILLS.map((skill) => (
+                      <li key={skill} className="skill-item">
+                        <span className="skill-bullet" />
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="about-block">
+                  <h3 className="about-block-title">Langages maîtrisés</h3>
+                  <div className="tool-grid">
+                    {LANGUAGES.map((item) => (
+                      <div key={item} className="tool-tag">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="about-block">
+                  <h3 className="about-block-title">Logiciels maîtrisés</h3>
+                  <div className="tool-grid">
+                    {SOFTWARE.map((item, index) => (
+                      <div key={`${item}-${index}`} className="tool-tag">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="about-column about-column-right">
+                <figure className="about-portrait about-portrait-desktop">
+                  <div className="about-portrait-frame">
+                    <img
+                      src="/assets/portrait-eli.webp"
+                      alt="Portrait d’Éli Bousquet"
+                    />
+                  </div>
+                  <figcaption>
+                    Crédit: Image prise par Alexandre Donato
+                  </figcaption>
+                </figure>
+                <div className="about-block">
+                  <h3 className="about-block-title">Qualités humaines</h3>
+                  <div className="pill-grid">
+                    {SOFT_SKILLS.map((item) => (
+                      <span key={item} className="pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="about-block">
+                  <h3 className="about-block-title">Intérêts</h3>
+                  <div className="pill-grid">
+                    {["Jeux-vidéos", "Mangas / Anime", "Arts"].map((item) => (
+                      <span key={item} className="pill pill-muted">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
-            <nav className="hub-nav" aria-label="Liens professionnels">
-              {HUB_LINKS.map((item) => {
-                const content = (
-                  <>
-                    <span className="hub-card-label">{item.label}</span>
-                    <span className="hub-card-desc">{item.desc}</span>
-                    <span className="hub-card-arrow">→</span>
-                  </>
-                );
-                if (item.anchor) {
-                  const id = item.anchor;
-                  return (
-                    <a
-                      key={item.label}
-                      className="hub-card"
-                      href={`#${id}`}
-                      data-arc-target
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToId(id);
-                      }}
-                    >
-                      {content}
-                    </a>
-                  );
-                }
-                return item.to ? (
-                  <Link
-                    key={item.label}
-                    className="hub-card"
-                    to={item.to}
-                    data-arc-target
-                  >
-                    {content}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.label}
-                    className="hub-card"
-                    href={item.href}
-                    data-arc-target
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content}
-                  </a>
-                );
-              })}
-            </nav>
-          </div>
-        </div>
-      </section>
+            <div className="feature-block awards-block">
+              <SectionHeading number="—">Prix</SectionHeading>
+              <div className="awards-list">
+                <article className="award-row">
+                  <div className="award-copy">
+                    <span className="step-num">01</span>
+                    <h3>Agences TIM Awards</h3>
+                    <p>
+                      Notre équipe a créé un site web,{" "}
+                      <strong>Project X</strong>, et a gagné le{" "}
+                      <strong>Grand Prix Agence TIM</strong>, remis au projet le
+                      plus complet et <strong>professionnel</strong> : concept
+                      clair, contenu pertinent, design cohérent et bonne{" "}
+                      intégration <strong>WordPress</strong>.
+                    </p>
+                  </div>
+                  <ZoomMedia
+                    className="award-media"
+                    title="Agences TIM Awards"
+                    images={[
+                      {
+                        src: "/assets/award-agences-tim.webp",
+                        alt: "Grand Prix des Agences TIM Awards",
+                      },
+                    ]}
+                  />
+                </article>
 
-      <section id="a-propos" className="section about-section">
-        <div className="container">
-          <SectionHeading number="01">À propos</SectionHeading>
-          <figure className="about-portrait about-portrait-mobile">
-            <div className="about-portrait-frame">
-              <img
-                src="/assets/portrait-eli.webp"
-                alt="Portrait d’Éli Bousquet"
+                <article className="award-row award-row-reverse">
+                  <div className="award-copy">
+                    <span className="step-num">02</span>
+                    <h3>Webjam édition 2026</h3>
+                    <p>
+                      Lors de l’édition 2026, notre équipe «{" "}
+                      <strong>Erreur Fatale</strong> » a créé un site web en
+                      36h, <strong>Q-tipousse</strong>, et a été couronnée pour
+                      le projet s’étant le plus démarqué en{" "}
+                      <strong>excellence</strong> technique, créative et
+                      collaborative. Composée de Yoan Robitaille, Miro Leblanc,
+                      Nathan Fortier et <strong>moi-même</strong>, notre équipe
+                      a su présenter un projet remarquable afin de repartir avec
+                      le <strong>Grand Prix</strong> du{" "}
+                      <strong>meilleur site</strong> remis par les juges.
+                    </p>
+                  </div>
+                  <ZoomMedia
+                    className="award-media"
+                    title="Webjam édition 2026"
+                    images={[
+                      {
+                        src: "/assets/award-webjam-2026.webp",
+                        alt: "Équipe gagnante du Webjam 2026",
+                      },
+                    ]}
+                  />
+                </article>
+              </div>
+            </div>
+
+            <div id="presentation" className="feature-block">
+              <SectionHeading number="—">Vidéo de présentation</SectionHeading>
+
+              <Youtube
+                videoId={PRESENTATION_VIDEO_ID}
+                title="Vidéo de présentation d’Éli Bousquet"
               />
             </div>
-            <figcaption>Crédit: Image prise par Alexandre Donato</figcaption>
-          </figure>
-          <div className="about-grid">
-            <div className="about-column">
-              <p className="about-value-prop">
-                Ma présence apporte dans les projets une{" "}
-                <strong>grande force</strong> en <strong>programmation</strong>{" "}
-                et en <strong>animation</strong>. Je contribue grandement dans
-                les équipes de <strong>jeux-vidéo</strong>, de{" "}
-                <strong>web</strong> et d’<strong>animation</strong>, grâce à
-                mes compétences en <strong>codage</strong>, mon sens de la{" "}
-                <strong>résolution de problèmes</strong> et ma{" "}
-                <strong>créativité</strong>.
-              </p>
-              <button
+          </div>
+        </section>
+
+        <section id="projets" className="section section-alt">
+          <div className="container">
+            <SectionHeading number="02">Projets</SectionHeading>
+            {useSwiper ? (
+              <ProjectsSwiper
+                projects={PROJECTS}
+                images={PROJECT_IMAGES}
+                awardSlugs={AWARD_PROJECT_SLUGS}
+                imagePositions={PROJECT_IMAGE_POSITIONS}
+                onOpen={openProject}
+              />
+            ) : (
+              <div className="projects-grid">
+                {PROJECTS.map((project, index) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    image={PROJECT_IMAGES[index]}
+                    awarded={AWARD_PROJECT_SLUGS.has(project.slug)}
+                    onOpen={openProject}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section id="contact" className="stage-section">
+          <div className="container contact-wrap">
+            <SectionHeading number="03">Recherche de stage</SectionHeading>
+            <p>
+              J’ai un intérêt particulier pour les stages de jeux-vidéo et
+              d’animation 3D!
+            </p>
+            <div className="contact-links">
+              <a
+                href="mailto:jaajnessmain@gmail.com"
+                className="contact-link"
+                data-arc-target
+              >
+                jaajnessmain@gmail.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/%C3%A9li-bousquet-0aa1063b8/"
+                className="contact-link"
+                target="_blank"
+                data-arc-target
+              >
+                Linkedin
+              </a>
+              <a
+                download="CV_Eli_Bousquet_2026_Portfolio.pdf"
+                href="/assets/CV_Eli_Bousquet_2026_Portfolio.pdf"
                 className="btn-primary"
                 data-arc-target
-                onClick={() => scrollTo("projets")}
               >
-                Voir les projets
-              </button>
-              <div className="about-block">
-                <h3 className="about-block-title">Compétences techniques</h3>
-                <ul className="skill-list">
-                  {SKILLS.map((skill) => (
-                    <li key={skill} className="skill-item">
-                      <span className="skill-bullet" />
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="about-block">
-                <h3 className="about-block-title">Langages maîtrisés</h3>
-                <div className="tool-grid">
-                  {LANGUAGES.map((item) => (
-                    <div key={item} className="tool-tag">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="about-block">
-                <h3 className="about-block-title">Logiciels maîtrisés</h3>
-                <div className="tool-grid">
-                  {SOFTWARE.map((item, index) => (
-                    <div key={`${item}-${index}`} className="tool-tag">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="about-column about-column-right">
-              <figure className="about-portrait about-portrait-desktop">
-                <div className="about-portrait-frame">
-                  <img
-                    src="/assets/portrait-eli.webp"
-                    alt="Portrait d’Éli Bousquet"
-                  />
-                </div>
-                <figcaption>
-                  Crédit: Image prise par Alexandre Donato
-                </figcaption>
-              </figure>
-              <div className="about-block">
-                <h3 className="about-block-title">Qualités humaines</h3>
-                <div className="pill-grid">
-                  {SOFT_SKILLS.map((item) => (
-                    <span key={item} className="pill">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="about-block">
-                <h3 className="about-block-title">Intérêts</h3>
-                <div className="pill-grid">
-                  {["Jeux-vidéos", "Mangas / Anime", "Arts"].map((item) => (
-                    <span key={item} className="pill pill-muted">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                Télécharger le CV
+              </a>
             </div>
           </div>
+        </section>
 
-          <div className="feature-block awards-block">
-            <SectionHeading number="—">Prix</SectionHeading>
-            <div className="awards-list">
-              <article className="award-row">
-                <div className="award-copy">
-                  <span className="step-num">01</span>
-                  <h3>Agences TIM Awards</h3>
-                  <p>
-                    Notre équipe a créé un site web, <strong>Project X</strong>,
-                    et a gagné le <strong>Grand Prix Agence TIM</strong>, remis
-                    au projet le plus complet et <strong>professionnel</strong>{" "}
-                    : concept clair, contenu pertinent, design cohérent et bonne{" "}
-                    intégration <strong>WordPress</strong>.
-                  </p>
-                </div>
-                <ZoomMedia
-                  className="award-media"
-                  title="Agences TIM Awards"
-                  images={[
-                    {
-                      src: "/assets/award-agences-tim.webp",
-                      alt: "Grand Prix des Agences TIM Awards",
-                    },
-                  ]}
-                />
-              </article>
-
-              <article className="award-row award-row-reverse">
-                <div className="award-copy">
-                  <span className="step-num">02</span>
-                  <h3>Webjam édition 2026</h3>
-                  <p>
-                    Lors de l’édition 2026, notre équipe «{" "}
-                    <strong>Erreur Fatale</strong> » a créé un site web en 36h,{" "}
-                    <strong>Q-tipousse</strong>, et a été couronnée pour le
-                    projet s’étant le plus démarqué en{" "}
-                    <strong>excellence</strong> technique, créative et
-                    collaborative. Composée de Yoan Robitaille, Miro Leblanc,
-                    Nathan Fortier et <strong>moi-même</strong>, notre équipe a
-                    su présenter un projet remarquable afin de repartir avec le <strong>Grand Prix</strong> du{" "}
-                    <strong>meilleur site</strong> remis par les juges.
-                  </p>
-                </div>
-                <ZoomMedia
-                  className="award-media"
-                  title="Webjam édition 2026"
-                  images={[
-                    {
-                      src: "/assets/award-webjam-2026.webp",
-                      alt: "Équipe gagnante du Webjam 2026",
-                    },
-                  ]}
-                />
-              </article>
+        <footer className="footer">
+          <div className="container footer-inner">
+            <span>Éli Bousquet · 2026</span>
+            <div className="footer-right">
+              <span>Animation · Jeux vidéo · Web</span>
+              <a href="/declaration-ia" className="btn-nav" data-arc-target>
+                Déclaration IA
+              </a>
             </div>
           </div>
-
-          <div id="presentation" className="feature-block">
-            <SectionHeading number="—">Vidéo de présentation</SectionHeading>
-
-            <Youtube
-              videoId={PRESENTATION_VIDEO_ID}
-              title="Vidéo de présentation d’Éli Bousquet"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section id="projets" className="section section-alt">
-        <div className="container">
-          <SectionHeading number="02">Projets</SectionHeading>
-          {useSwiper ? (
-            <ProjectsSwiper
-              projects={PROJECTS}
-              images={PROJECT_IMAGES}
-              awardSlugs={AWARD_PROJECT_SLUGS}
-              imagePositions={PROJECT_IMAGE_POSITIONS}
-              onOpen={openProject}
-            />
-          ) : (
-            <div className="projects-grid">
-              {PROJECTS.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  image={PROJECT_IMAGES[index]}
-                  awarded={AWARD_PROJECT_SLUGS.has(project.slug)}
-                  onOpen={openProject}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      <section id="contact" className="stage-section">
-        <div className="container contact-wrap">
-          <SectionHeading number="03">Recherche de stage</SectionHeading>
-          <p>
-            J’ai un intérêt particulier pour les stages de jeux-vidéo et
-            d’animation 3D!
-          </p>
-          <div className="contact-links">
-            <a
-              href="mailto:jaajnessmain@gmail.com"
-              className="contact-link"
-              data-arc-target
-            >
-              jaajnessmain@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/%C3%A9li-bousquet-0aa1063b8/"
-              className="contact-link"
-              target="_blank"
-              data-arc-target
-            >
-              Linkedin
-            </a>
-            <a
-              download="CV_Eli_Bousquet_2026_Portfolio.pdf"
-              href="/assets/CV_Eli_Bousquet_2026_Portfolio.pdf"
-              className="btn-primary"
-              data-arc-target
-            >
-              Télécharger le CV
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <div className="container footer-inner">
-          <span>Éli Bousquet · 2026</span>
-          <div className="footer-right">
-            <span>Animation · Jeux vidéo · Web</span>
-            <a href="/declaration-ia" className="btn-nav" data-arc-target>
-              Déclaration IA
-            </a>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </main>
     </>
   );
 }
