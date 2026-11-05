@@ -120,16 +120,16 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/unity-hero-banner.png",
-      context: "/assets/unity-context-bins.png",
+      hero: "/assets/unity-hero-banner.webp",
+      context: "/assets/unity-context-bins.webp",
       steps: [
-        "/assets/unity-step1-schedule.png",
-        "/assets/unity-step2-scene-colliders.png",
-        "/assets/unity-step3-animator.png",
-        "/assets/unity-step4-audio.png",
-        "/assets/unity-step5-test-ui.png",
+        "/assets/unity-step1-schedule.webp",
+        "/assets/unity-step2-scene-colliders.webp",
+        "/assets/unity-step3-animator.webp",
+        "/assets/unity-step4-audio.webp",
+        "/assets/unity-step5-test-ui.webp",
       ],
-      result: "/assets/cover-unity-iceberg.png",
+      result: "/assets/cover-unity-iceberg.webp",
       video: { id: "SJY6i5Td2aI" }, // TODO: ID de la vidéo YouTube
     },
     challenges: [
@@ -204,20 +204,20 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/unreal-hero-banner.jpg",
-      context: "/assets/unreal-context-scene.jpg",
+      hero: "/assets/unreal-hero-banner.webp",
+      context: "/assets/unreal-context-scene.webp",
       steps: [
-        "/assets/unreal-step1-exploration.jpg",
-        "/assets/unreal-step2-construction.jpg",
+        "/assets/unreal-step1-exploration.webp",
+        "/assets/unreal-step2-construction.webp",
         [
-          "/assets/unreal-step3.1-blueprint.jpg",
-          "/assets/unreal-step3.2-blueprint.jpg",
-          "/assets/unreal-step3.3-blueprint.jpg",
+          "/assets/unreal-step3.1-blueprint.webp",
+          "/assets/unreal-step3.2-blueprint.webp",
+          "/assets/unreal-step3.3-blueprint.webp",
         ],
-        "/assets/unreal-step4-ambiance.jpg",
-        "/assets/unreal-step5-presentation.jpg",
+        "/assets/unreal-step4-ambiance.webp",
+        "/assets/unreal-step5-presentation.webp",
       ],
-      result: "/assets/cover-unreal-lappel.png",
+      result: "/assets/cover-unreal-lappel.webp",
       video: { id: "zDqxTQ8GsR4" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [
@@ -293,16 +293,16 @@ export const PROJECTS: Project[] = [
       "Aucune IA générative n’a été utilisée par Éli pour réaliser sa partie de ce projet collectif.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/unreal-equipe-hero-banner.jpg",
-      context: "/assets/unreal-equipe-context-scene.jpg",
+      hero: "/assets/unreal-equipe-hero-banner.webp",
+      context: "/assets/unreal-equipe-context-scene.webp",
       steps: [
-        "/assets/unreal-equipe-step1-organisation.jpg",
-        "/assets/unreal-equipe-step2-conception.jpg",
-        "/assets/unreal-equipe-step3-developpement.jpg",
-        "/assets/unreal-equipe-step4-integration.jpg",
-        "/assets/unreal-equipe-step5-presentation.jpg",
+        "/assets/unreal-equipe-step1-organisation.webp",
+        "/assets/unreal-equipe-step2-conception.webp",
+        "/assets/unreal-equipe-step3-developpement.webp",
+        "/assets/unreal-equipe-step4-integration.webp",
+        "/assets/unreal-equipe-step5-presentation.webp",
       ],
-      result: "/assets/cover-unreal-equipe.png",
+      result: "/assets/cover-unreal-equipe.webp",
       video: { id: "i-tRi4J9DIk" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [
@@ -377,20 +377,20 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/web-hero-banner.jpg",
-      context: "/assets/web-context.jpg",
+      hero: "/assets/web-hero-banner.webp",
+      context: "/assets/web-context.webp",
       steps: [
-        "/assets/web-step1-conception.jpg",
-        "/assets/web-step2-composants.jpg",
-        "/assets/web-step3-fonctionnalites.jpg",
+        "/assets/web-step1-conception.webp",
+        "/assets/web-step2-composants.webp",
+        "/assets/web-step3-fonctionnalites.webp",
         [
-          "/assets/web-step4.1-optimisation-et-aq.png",
-          "/assets/web-step4.2-optimisation-et-aq.png",
-          "/assets/web-step4.3-optimisation-et-aq.png",
+          "/assets/web-step4.1-optimisation-et-aq.webp",
+          "/assets/web-step4.2-optimisation-et-aq.webp",
+          "/assets/web-step4.3-optimisation-et-aq.webp",
         ],
-        "/assets/web-step5-documentation.jpg",
+        "/assets/web-step5-documentation.webp",
       ],
-      result: "/assets/cover2-project-x.png",
+      result: "/assets/cover2-project-x.webp",
       site: { url: "https://ehebert.dectim.ca/projectx/" }, // TODO: adresse du site (https://...)
     },
     /* challenges: [
@@ -465,20 +465,20 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/webjam-hero-banner.jpg",
-      context: "/assets/webjam-context.jpg",
+      hero: "/assets/webjam-hero-banner.webp",
+      context: "/assets/webjam-context.webp",
       steps: [
-        "/assets/webjam-step1-ideation.jpg",
-        "/assets/webjam-step2-conception.jpg",
-        "/assets/webjam-step3-developpement.jpg",
+        "/assets/webjam-step1-ideation.webp",
+        "/assets/webjam-step2-conception.webp",
+        "/assets/webjam-step3-developpement.webp",
         [
-          "/assets/webjam-step4.1-ajustements.jpg",
-          "/assets/webjam-step4.2-ajustements.jpg",
-          "/assets/webjam-step4.3-ajustements.jpg",
+          "/assets/webjam-step4.1-ajustements.webp",
+          "/assets/webjam-step4.2-ajustements.webp",
+          "/assets/webjam-step4.3-ajustements.webp",
         ],
-        "/assets/webjam-step5-presentation.jpg",
+        "/assets/webjam-step5-presentation.webp",
       ],
-      result: "/assets/cover2-q-tipousse.png",
+      result: "/assets/cover2-q-tipousse.webp",
       site: { url: "https://ebousquet.dectim.ca/webjam/" }, // TODO: adresse du site (https://...)
     },
     /* challenges: [
@@ -553,16 +553,16 @@ export const PROJECTS: Project[] = [
     aiProject: "Aucune IA générative n’a été utilisée pour réaliser ce projet.",
     aiPresentation: AI_PRESENTATION_DISCLOSURE,
     media: {
-      hero: "/assets/3d-hero-banner.jpg",
-      context: "/assets/3d-context-scene.jpg",
+      hero: "/assets/3d-hero-banner.webp",
+      context: "/assets/3d-context-scene.webp",
       steps: [
-        "/assets/3d-step1-storyboard.jpg",
-        "/assets/3d-step2-modelisation.jpg",
-        "/assets/3d-step3-animation.jpg",
-        "/assets/3d-step4-eclairage.jpg",
-        "/assets/3d-step5-final.jpg",
+        "/assets/3d-step1-storyboard.webp",
+        "/assets/3d-step2-modelisation.webp",
+        "/assets/3d-step3-animation.webp",
+        "/assets/3d-step4-eclairage.webp",
+        "/assets/3d-step5-final.webp",
       ],
-      result: "/assets/cover-route-infini-3d.png",
+      result: "/assets/cover-route-infini-3d.webp",
       video: { id: "wyxnPakfAPs" }, // TODO: ID de la vidéo YouTube
     },
     /* challenges: [

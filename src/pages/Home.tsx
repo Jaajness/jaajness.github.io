@@ -85,12 +85,12 @@ const scrollToId = (id: string) => {
 };
 
 const PROJECT_IMAGES = [
-  "/assets/cover-unity-iceberg.png",
-  "/assets/cover-unreal-lappel.png",
-  "/assets/cover-unreal-equipe.png",
-  "/assets/cover-project-x.png",
-  "/assets/cover-q-tipousse.png",
-  "/assets/cover-route-infini-3d.png",
+  "/assets/cover-unity-iceberg.webp",
+  "/assets/cover-unreal-lappel.webp",
+  "/assets/cover-unreal-equipe.webp",
+  "/assets/cover-project-x.webp",
+  "/assets/cover-q-tipousse.webp",
+  "/assets/cover-route-infini-3d.webp",
 ];
 
 const AWARD_PROJECT_SLUGS = new Set(["project-x", "q-tipousse"]);
@@ -137,7 +137,7 @@ export default function Home() {
         <div className="hero-scan" />
         <div className="hero-ring" />
         <div className="hero-art" aria-hidden="true">
-          <img src="/assets/hero-art-character.png" alt="" />
+          <img src="/assets/hero-art-character.webp" alt="" />
         </div>
         <span className="hero-sidetag">Éli Bousquet — Portfolio 2026</span>
         <div className="hero-wrapper">
@@ -242,7 +242,7 @@ export default function Home() {
           <figure className="about-portrait about-portrait-mobile">
             <div className="about-portrait-frame">
               <img
-                src="/assets/portrait-eli.png"
+                src="/assets/portrait-eli.webp"
                 alt="Portrait d’Éli Bousquet"
               />
             </div>
@@ -303,7 +303,7 @@ export default function Home() {
               <figure className="about-portrait about-portrait-desktop">
                 <div className="about-portrait-frame">
                   <img
-                    src="/assets/portrait-eli.png"
+                    src="/assets/portrait-eli.webp"
                     alt="Portrait d’Éli Bousquet"
                   />
                 </div>
@@ -354,7 +354,7 @@ export default function Home() {
                   title="Agences TIM Awards"
                   images={[
                     {
-                      src: "/assets/award-agences-tim.png",
+                      src: "/assets/award-agences-tim.webp",
                       alt: "Grand Prix des Agences TIM Awards",
                     },
                   ]}
@@ -382,7 +382,7 @@ export default function Home() {
                   title="Webjam édition 2026"
                   images={[
                     {
-                      src: "/assets/award-webjam-2026.png",
+                      src: "/assets/award-webjam-2026.webp",
                       alt: "Équipe gagnante du Webjam 2026",
                     },
                   ]}
